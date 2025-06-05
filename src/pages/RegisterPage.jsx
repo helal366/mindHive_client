@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router";
 import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
 import SignUpOne from "../lotties/one/signupOne";
+// import { motion } from "motion/react";
 // import { toast } from "react-toastify";
 
 const RegisterPage = () => {
@@ -61,7 +62,10 @@ const RegisterPage = () => {
           <div className="card bg-base-100 w-full mx-auto my-10 max-w-sm shrink-0 shadow-2xl glass">
             <div className="card-body ">
               <form onSubmit={handleRegister}>
-                <h2 className="text-xl md:text-2xl lg:text-3xl text-center font-semibold mb-5">
+                <h2
+                  
+                  className="text-xl md:text-2xl lg:text-3xl text-center font-semibold mb-5"
+                >
                   Please Register Here!
                 </h2>
                 <fieldset className="fieldset">
