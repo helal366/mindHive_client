@@ -1,40 +1,41 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
-const PublisherFieldset = () => {
+
+const AuthorFieldset = () => {
     const { user } = useAuth();
   const userName = user?.displayName;
   const userEmail = user?.email;
   const userPhoto = user?.photoURL;
     return (
         <>
-            {/* publisher name */}
+            {/* author name */}
               <fieldset className="fieldset bg-base-200">
-                <legend className="fieldset-legend mb-1">Publisher Name</legend>
+                <legend className="fieldset-legend mb-1">Author Name</legend>
                 <input
                   type="text"
-                  name="publisherName"
+                  name="authorName"
                   className="input w-full mb-2"
                   value={userName}
                   readOnly
                 />
               </fieldset>
-              {/* publisher email */}
+              {/* author email */}
               <fieldset className="fieldset bg-base-200">
-                <legend className="fieldset-legend mb-1">Publisher Email</legend>
+                <legend className="fieldset-legend mb-1">Author Email</legend>
                 <input
                   type="email"
-                  name="publisherEmail"
+                  name="authorEmail"
                   className="input w-full mb-2"
                   value={userEmail}
                   readOnly
                 />
               </fieldset>
-              {/* publisher photo */}
+              {/* author photo */}
               <fieldset className="fieldset bg-base-200">
-                <legend className="fieldset-legend mb-1">Publisher photo URL</legend>
+                <legend className="fieldset-legend mb-1">Author photo URL</legend>
                 <input
                   type="text"
-                  name="publisherPhoto"
+                  name="authorPhoto"
                   className="input w-full mb-2"
                   value={userPhoto}
                   readOnly
@@ -44,4 +45,4 @@ const PublisherFieldset = () => {
     );
 };
 
-export default PublisherFieldset;
+export default AuthorFieldset;

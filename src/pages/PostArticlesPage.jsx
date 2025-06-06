@@ -5,6 +5,7 @@ import PublisherFieldset from "../components/postArticleComponents/PublisherFiel
 import Heading from "../components/postArticleComponents/Heading";
 import SubmitButton from "../components/postArticleComponents/SubmitButton";
 import { toast } from 'react-toastify';
+import AuthorFieldset from "../components/postArticleComponents/AuthorFieldset";
 
 const PostArticlesPage = () => {
   const handlePostArticle=e=>{
@@ -35,7 +36,7 @@ const PostArticlesPage = () => {
             <form onSubmit={handlePostArticle}>
               <Heading/>
               <ArticleFieldsets />
-              <PublisherFieldset />
+              <AuthorFieldset/>
               <SubmitButton/>
             </form>
           </div>
