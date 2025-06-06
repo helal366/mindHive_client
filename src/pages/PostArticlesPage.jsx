@@ -1,7 +1,6 @@
 import React from "react";
 import axios from 'axios';
 import ArticleFieldsets from "../components/postArticleComponents/ArticleFieldsets";
-import PublisherFieldset from "../components/postArticleComponents/PublisherFieldset";
 import Heading from "../components/postArticleComponents/Heading";
 import SubmitButton from "../components/postArticleComponents/SubmitButton";
 import { toast } from 'react-toastify';
