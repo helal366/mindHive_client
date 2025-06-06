@@ -1,47 +1,74 @@
 import React from "react";
 import { NavLink } from "react-router";
+import {motion} from 'motion/react';
 
 const NavbarLinks = () => {
   return (
     <>
       <li>
-        <NavLink to='/'>
-         <button className="btn text-base-content bg-base-100">
-          Home
-        </button>
-        </NavLink>
-      </li>&nbsp;
-      <li>
-        <NavLink to='/all-articles'>
-        <button className="btn text-base-content bg-base-100">
-          All Articles
-        </button>
-        </NavLink>
-      </li>&nbsp;
-      <li>
-        <NavLink to='/my-articles'>
-         <button className="btn text-base-content bg-base-100">
-          My Articles
-        </button>
-        </NavLink>
-      </li>&nbsp;
-      <li>
-        <NavLink to='/post-article'>
-         <button className="btn text-base-content bg-base-100">
-          Post Articles
-        </button>
-        </NavLink>
-      </li>&nbsp;
-      <li>
-        <NavLink to='/about-us'>
-         <button className="btn text-base-content bg-base-100">
-         About us
-        </button>
+        <NavLink to="/">
+          <motion.button 
+          whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
+            whileTap={{ scale: 0.95 }}
+          className="btn text-base-content bg-base-100 group">
+            <span className="group-hover: text-cyan-500 transition-colors duration-300">
+              Home
+            </span>
+          </motion.button>
         </NavLink>
       </li>
-
-     
-
+      &nbsp;
+      <li>
+        <NavLink to="/all-articles">
+          <motion.button 
+          whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
+            whileTap={{ scale: 0.95 }}
+          className="btn text-base-content bg-base-100 group">
+            <span className="group-hover: text-cyan-500 transition-colors duration-300">
+               All Articles
+            </span>
+          </motion.button>
+        </NavLink>
+      </li>
+      &nbsp;
+      <li>
+        <NavLink to="/my-articles">
+          <motion.button 
+          whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
+            whileTap={{ scale: 0.95 }}
+          className="btn text-base-content bg-base-100 group">
+            <span className="group-hover: text-cyan-500 transition-colors duration-300">
+              My Articles
+            </span>
+          </motion.button>
+        </NavLink>
+      </li>
+      &nbsp;
+      <li>
+        <NavLink to="/post-article">
+          <motion.button 
+          whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
+            whileTap={{ scale: 0.95 }}
+          className="btn text-base-content bg-base-100 group">
+            <span className="group-hover: text-cyan-500 transition-colors duration-300">
+              Post Articles
+            </span>
+          </motion.button>
+        </NavLink>
+      </li>
+      &nbsp;
+      <li>
+        <NavLink to="/about-us">
+          <motion.button 
+          whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
+            whileTap={{ scale: 0.95 }}
+          className="btn text-base-content bg-base-100 group">
+            <span className="group-hover: text-cyan-500 transition-colors duration-300">
+              About us
+            </span>
+          </motion.button>
+        </NavLink>
+      </li>
     </>
   );
 };

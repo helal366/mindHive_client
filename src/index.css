@@ -26,6 +26,10 @@ a.active{
 .shadowTwo{
   @apply shadow-[0px_1px_2px_0px_rgba(255,255,255,0.1)_inset, 0px_1px_2px_0px_rgba(255,255,255,0.1)_inset]
 }
+*/
 .spanOne{
-  @apply absolute inset-x-0 bottom-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent h-px
-} */
+  @apply absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent h-[3px] w-3/4 mx-auto
+} 
+.spanTwo{
+  @apply absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent h-1 blur-md w-full mx-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300
+} 

@@ -6,8 +6,8 @@ const BannerTitle = () => {
     return (
         <div className="flex flex-col justify-center ml-5">
           <motion.h1 
-          animate={{x: [0,10,0]}}
-          transition={{duration: 5, repeat: Infinity}}
+          animate={{x: [0,20,0]}}
+          transition={{duration: 9, repeat: Infinity}}
           className="text-3xl sm:text-5xl font-bold my-6">
             Empower Minds, Share Knowledge!
           </motion.h1>
@@ -18,7 +18,14 @@ const BannerTitle = () => {
           </p>
 
           <Link to="/all-articles">
-            <button className="btn btn-neutral">All Articles</button>
+            <motion.button 
+          whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
+            whileTap={{ scale: 0.95 }}
+          className="btn btn-neutral text-base-content bg-base-100 group">
+            <span className="group-hover: text-cyan-500 transition-colors duration-300">
+              All Articles
+            </span>
+          </motion.button>
           </Link>
         </div>
     );
