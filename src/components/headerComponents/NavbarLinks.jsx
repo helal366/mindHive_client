@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router";
-import {motion} from 'motion/react';
+import {easeInOut, motion} from 'motion/react';
 
 const NavbarLinks = () => {
   return (
@@ -10,6 +10,7 @@ const NavbarLinks = () => {
           <motion.button 
           whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
             whileTap={{ scale: 0.95 }}
+            transition={{duration:0.3, ease: easeInOut}}
           className="btn text-base-content bg-base-100 group">
             <span className="group-hover: text-cyan-500 transition-colors duration-300">
               Home
@@ -23,6 +24,7 @@ const NavbarLinks = () => {
           <motion.button 
           whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
             whileTap={{ scale: 0.95 }}
+            transition={{duration:0.3, ease: easeInOut}}
           className="btn text-base-content bg-base-100 group">
             <span className="group-hover: text-cyan-500 transition-colors duration-300">
                All Articles
@@ -36,6 +38,7 @@ const NavbarLinks = () => {
           <motion.button 
           whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
             whileTap={{ scale: 0.95 }}
+            transition={{duration:0.3, ease: easeInOut}}
           className="btn text-base-content bg-base-100 group">
             <span className="group-hover: text-cyan-500 transition-colors duration-300">
               My Articles
@@ -49,6 +52,7 @@ const NavbarLinks = () => {
           <motion.button 
           whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
             whileTap={{ scale: 0.95 }}
+            transition={{duration:0.3, ease: easeInOut}}
           className="btn text-base-content bg-base-100 group">
             <span className="group-hover: text-cyan-500 transition-colors duration-300">
               Post Articles
@@ -62,6 +66,7 @@ const NavbarLinks = () => {
           <motion.button 
           whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
             whileTap={{ scale: 0.95 }}
+            transition={{duration:0.3, ease: easeInOut}}
           className="btn text-base-content bg-base-100 group">
             <span className="group-hover: text-cyan-500 transition-colors duration-300">
               About us

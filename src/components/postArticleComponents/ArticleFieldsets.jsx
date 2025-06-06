@@ -73,7 +73,7 @@ const ArticleFieldsets = () => {
               </fieldset>
               {/* publication data */}
               <fieldset className="fieldset bg-base-200">
-                <legend className="fieldset-legend mb-1">Publication DateTags</legend>
+                <legend className="fieldset-legend mb-1">Publication Date</legend>
                 <input
                   type="date"
                   name="publicationDate"
