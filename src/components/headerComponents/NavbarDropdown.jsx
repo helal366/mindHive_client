@@ -23,7 +23,7 @@ const NavbarDropdown = () => {
       >
         <div className="w-10 rounded-full">
           <img
-            alt="Tailwind CSS Navbar component"
+            alt={user.name}
             src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
           />
         </div>
@@ -32,11 +32,7 @@ const NavbarDropdown = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
       >
-        <li>
-          <p className="justify-between">
-            Email: {userEmail}
-          </p>
-        </li>
+        
         <li>
           <NavLink to="/my-articles" className="justify-between">
             My Articles
@@ -46,8 +42,14 @@ const NavbarDropdown = () => {
           <NavLink to='/post-article'>Post Article</NavLink>
         </li>
         <li>
+          <p className="justify-between">
+           {userEmail}
+          </p>
+        </li>
+        <li>
           <button onClick={handleLogout} className="py-1 w-full flex justify-center">Logout</button>
         </li>
+        
       </ul>
     </div>
   );
