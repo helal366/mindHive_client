@@ -14,7 +14,9 @@ const RootHomeLayout = () => {
         <Loading />
       ) : (
         <>
-          <section className="padding">
+          <section
+          style={{backgroundImage:`radial-gradient(circle at 2px 2px, rgba(6, 182, 212, 0.2) 0.5px, transparent 0)`, backgroundSize: "8px 8px", backgroundRepeat: 'repeat'}}
+          className="padding min-h-screen">
             <Outlet />
           </section>
         </>

@@ -5,6 +5,7 @@ import EmailPassword from "../components/loginRegisterComponents/EmailPassword";
 import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
 import SignUpOne from "../lotties/one/signupOne";
+import {motion} from "motion/react"
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -36,9 +37,16 @@ const LoginPage = () => {
           <div className="card bg-base-100 w-full mx-auto my-10 max-w-sm shrink-0 shadow-2xl glass">
             <div className="card-body ">
               <form onSubmit={handleLogin}>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl text-center font-semibold mb-5">
+                <motion.h2
+                initial={{ scale: 1, x: [0] }}
+                  animate={{
+                    scale: 1,
+                    x: [0, 10, 0],
+                    transition: { duration: 3, repeat: Infinity },
+                  }} 
+                className="text-2xl sm:text-3xl md:text-4xl text-center font-semibold mb-5">
                   Please Login Here!
-                </h2>
+                </motion.h2>
                 <fieldset className="fieldset">
                   <EmailPassword />
                   <button

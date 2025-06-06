@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router";
 import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
 import SignUpOne from "../lotties/one/signupOne";
+import { motion } from "motion/react";
 // import { motion } from "motion/react";
 // import { toast } from "react-toastify";
 
@@ -62,12 +63,17 @@ const RegisterPage = () => {
           <div className="card bg-base-100 w-full mx-auto my-10 max-w-sm shrink-0 shadow-2xl glass">
             <div className="card-body ">
               <form onSubmit={handleRegister}>
-                <h2
-                  
+                <motion.h2
+                  initial={{ scale: 1, x: [0] }}
+                  animate={{
+                    scale: 1,
+                    x: [0, 10, 0],
+                    transition: { duration: 3, repeat: Infinity },
+                  }}
                   className="text-xl md:text-2xl lg:text-3xl text-center font-semibold mb-5"
                 >
                   Please Register Here!
-                </h2>
+                </motion.h2>
                 <fieldset className="fieldset">
                   <NamePhotoURL />
                   <EmailPassword />
@@ -82,7 +88,7 @@ const RegisterPage = () => {
                   )}
                   <SocialLogin />
                   <p className="mt-2">
-                    Already Registered ? Please{" "}
+                    Already have an account ? Please{" "}
                     <Link
                       to="/auth/login"
                       className="text-blue-600 underline cursor-pointer"
