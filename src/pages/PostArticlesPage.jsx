@@ -1,9 +1,10 @@
 import React from "react";
-
+import axios from 'axios';
 import ArticleFieldsets from "../components/postArticleComponents/ArticleFieldsets";
 import PublisherFieldset from "../components/postArticleComponents/PublisherFieldset";
 import Heading from "../components/postArticleComponents/Heading";
 import SubmitButton from "../components/postArticleComponents/SubmitButton";
+import { toast } from 'react-toastify';
 
 const PostArticlesPage = () => {
   const handlePostArticle=e=>{
@@ -15,7 +16,15 @@ const PostArticlesPage = () => {
     const tagsArray=tags.split(',').map(e=>e.trim());
     const newArticleData={...restArtisleData, tags:tagsArray}
     console.log(newArticleData, tagsArray);
-    
+    axios.post(`${import.meta.env.VITE_API_URL}/post-article`,newArticleData)
+    .then(result=>{
+      // console.log(result);
+      if(result?.data?.acknowledged){
+        toast.success('Your article posted successfully')
+      }
+    }).catch(err=>{
+      toast.error(err.message)
+    })
 
   }
   return (
