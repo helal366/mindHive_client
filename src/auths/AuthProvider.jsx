@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config.js'
+import  axios  from 'axios';
 
 const auth=getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser]=useState(null)
     const [loading, setLoading]=useState(true)
+    const baseURL=import.meta.env.VITE_API_URL;
+import { toast } from 'react-toastify';
 
     const userCreate=(email,password)=>{
         setLoading(true)
@@ -28,13 +31,24 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
         const unSubscribe=onAuthStateChanged(auth, currentUser=>{
             setUser(currentUser)
-            setLoading(false)
+            setLoading(false);
+            if(currentUser?.email){
+                axios.post(`${baseURL}/jwt`,{
+                    email: currentUser?.email
+                }).then(data=>{
+                    console.log('token from server', data?.data);
+                    const token=data.data.token;
+                    localStorage.setItem('token', token)
+                }).catch(err=>{
+                    toast.error(err.message);
+                    console.log(err)
+                })
+            }
         });
         return ()=>{
             unSubscribe()
         }
-    },[]);
-    const baseURL=import.meta.env.VITE_API_URL;
+    },[baseURL]);
     const authInfo={
         auth,
         user,
