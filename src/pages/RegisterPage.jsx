@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NamePhotoURL from "./../components/loginRegisterComponents/NamePhotoURL";
 import EmailPassword from "../components/loginRegisterComponents/EmailPassword";
 import SocialLogin from "../components/loginRegisterComponents/SocialLogin";
@@ -11,6 +11,9 @@ import { motion } from "motion/react";
 // import { toast } from "react-toastify";
 
 const RegisterPage = () => {
+  useEffect(()=>{
+      window.scrollTo(0,0)
+    },[])
   const navigate = useNavigate();
   const { userCreate, userUpdate } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");

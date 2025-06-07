@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from 'axios';
 import ArticleFieldsets from "../components/postArticleComponents/ArticleFieldsets";
 import Heading from "../components/postArticleComponents/Heading";
@@ -7,6 +7,9 @@ import { toast } from 'react-toastify';
 import AuthorFieldset from "../components/postArticleComponents/AuthorFieldset";
 
 const PostArticlesPage = () => {
+  useEffect(()=>{
+      window.scrollTo(0,0)
+    },[])
   const handlePostArticle=e=>{
     e.preventDefault();
     const form=e.target;

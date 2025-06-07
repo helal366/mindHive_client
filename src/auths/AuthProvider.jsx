@@ -33,7 +33,8 @@ const AuthProvider = ({children}) => {
         return ()=>{
             unSubscribe()
         }
-    },[])
+    },[]);
+    const baseURL=import.meta.env.VITE_API_URL;
     const authInfo={
         auth,
         user,
@@ -44,6 +45,7 @@ const AuthProvider = ({children}) => {
         userLogin,
         userUpdate,
         userLogout,
+        baseURL,
     }
     return (
         <AuthContext.Provider value={authInfo}>

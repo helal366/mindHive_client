@@ -3,7 +3,7 @@ import { motion } from "motion/react"
 
 const Motions = () => {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 ml-5 md::ml-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 ml-5 md::ml-0">
                   <motion.div 
                   initial={{scale: 0.9, opacity:0.6}}
                   animate={{scale:[0.9,1.0,0.9], opacity: [0.8,1.0,0.8]}}

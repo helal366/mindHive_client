@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SocialLogin from "../components/loginRegisterComponents/SocialLogin";
 import { Link, useNavigate } from "react-router";
 import EmailPassword from "../components/loginRegisterComponents/EmailPassword";
@@ -8,6 +8,9 @@ import SignUpOne from "../lotties/one/signupOne";
 import {motion} from "motion/react"
 
 const LoginPage = () => {
+  useEffect(()=>{
+      window.scrollTo(0,0)
+    },[])
   const navigate = useNavigate();
   const { userLogin } = useAuth();
 
