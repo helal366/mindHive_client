@@ -27,7 +27,7 @@ const MyArticlesPage = () => {
     : myArticles;
 
   return (
-    <div>
+    <div className="pb-16">
       <div className="flex justify-between">
         <input
           onChange={(e) => setSearch(e.target.value)}

@@ -3,7 +3,8 @@ import { easeInOut, motion } from "motion/react";
 import { Link } from "react-router";
 
 const ArticleCard = ({ article }) => {
-  const { title, thumbnail, publicationDate, authorName, content,_id } = article;
+  const { title, thumbnail, publicationDate, authorName, content, _id } =
+    article;
 
   const shortContent = (content, wordLimit) => {
     const wordsArray = content.split(" ");
@@ -15,12 +16,20 @@ const ArticleCard = ({ article }) => {
   // console.log(result);
   return (
     <motion.div
-      whileHover={{ scale: 1.08 }}
+      initial={{ x: 2, y: 0 }}
+      animate={{
+        x: [2, 2, 0, -2, -2, -2, 0, 2, 2],
+        y: [0, 2, 2, 2, 0, -2, -2, -2, 0],
+      }}
+      whileHover={{ scale: [1.05, 1.0, 1.05] }}
       style={{ boxShadow: "0px 10px 20px rgba(255,255,255,0.8" }}
+      transition={{duration:3, repeat:Infinity}}
       className="card bg-success text-success-content shadow-2xl border border-primary"
     >
       <figure>
-        <img className="h-80 w-full" src={thumbnail} alt={title} />
+        <motion.img 
+        whileHover={{opacity: 0.6}}
+        className="h-80 w-full" src={thumbnail} alt={title} />
       </figure>
       <div className="card-body">
         <motion.h2
@@ -29,7 +38,7 @@ const ArticleCard = ({ article }) => {
           transition={{ duration: 9, repeat: Infinity }}
           className="card-title mb-5"
         >
-         &nbsp; {title}
+          &nbsp; {title}
         </motion.h2>
 
         <p>Author name: {authorName}</p>
