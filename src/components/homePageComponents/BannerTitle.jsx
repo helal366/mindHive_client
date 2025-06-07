@@ -8,7 +8,7 @@ const BannerTitle = () => {
           <motion.h1 
           animate={{x: [0,20,0]}}
           transition={{duration: 9, repeat: Infinity}}
-          className="text-3xl sm:text-5xl font-bold my-6">
+          className="text-3xl sm:text-4xl font-bold my-6">
             Empower Minds, Share Knowledge!
           </motion.h1>
           <p className="text-sm sm:text-base py-6">

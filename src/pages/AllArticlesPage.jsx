@@ -19,7 +19,6 @@ const AllArticlesPage = () => {
   
   
 
-  // const filteredArticles=search?allArticles.filter(article=>article.title.toLowerCase().includes(search.toLowerCase())):allArticles
   
   return (
     <div className="pb-16">
@@ -27,7 +26,7 @@ const AllArticlesPage = () => {
         <input
         onChange={e=>setSearch(e.target.value)}
           type="text"
-          placeholder="Search"
+          placeholder="Search by title"
           className="input input-bordered w-auto  my-10"
         />
         <h2 className="text-3xl text-center font-semibold my-10">

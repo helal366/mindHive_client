@@ -5,7 +5,8 @@ import { toast } from "react-toastify";
 
 const NavbarDropdown = () => {
   const {user, userLogout}=useAuth();
-  const userEmail=user?user.email:'';
+  const daisyImage="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+  const userEmail=user?user.email:daisyImage;
   const handleLogout=()=>{
     userLogout()
     .then(()=>{
@@ -24,7 +25,7 @@ const NavbarDropdown = () => {
         <div className="w-10 rounded-full">
           <img
             alt={user.name}
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+            src={userEmail}
           />
         </div>
       </div>

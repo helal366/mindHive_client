@@ -8,7 +8,7 @@ const HomePage = () => {
   },[])
   return (
     <div className="hero bg-base-200 min-h-screen my-10 rounded-lg shadow-2xl py-10">
-      <div className="grid grid-cols-1 lg:grid-cols-[46%_51%] gap-[1%] px-[1%]">
+      <div className="grid grid-cols-1 lg:grid-cols-[42%_55%] gap-[1%] px-[1%]">
         <BannerTitle/>
         <Motions />
       </div>
