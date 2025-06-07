@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import { MdDeleteForever } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import { MdViewList } from "react-icons/md";
+import { Tooltip } from 'react-tooltip';
 
 const TableRaw = ({article, index}) => {
     const { title, _id, thumbnail, category, publicationDate } =
@@ -35,9 +36,12 @@ const TableRaw = ({article, index}) => {
                 </td>
                 <td>
                   <div className="join join-vertical">
-                    <button className="btn join-item sm:mb-1"><MdViewList size={20} color='teal'/></button>
-                    <button className="btn join-item sm:mb-1"><MdEdit size={20} color='teal'/></button>
-                    <button className="btn join-item"><MdDeleteForever size={20} color='teal'/></button>
+                    <button data-tooltip-id='view' className="btn join-item sm:mb-1 hidden sm:block"><MdViewList size={20} color='teal'/></button>
+                    <Tooltip id='view' content='View details'/>
+                    <button data-tooltip-id='edit' className="btn join-item sm:mb-1"><MdEdit size={20} color='teal'/></button>
+                    <Tooltip id='edit' content='Edit or Update'/>
+                    <button data-tooltip-id='delete' className="btn join-item"><MdDeleteForever size={20} color='teal'/></button>
+                    <Tooltip id='delete' content='Delete'/>
                   </div>
                 </td>
               </tr>
