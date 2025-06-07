@@ -11,7 +11,13 @@ const MyArticlesPage = () => {
   const [myArticles, setMyArticles] = useState([]);
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios(`${baseURL}/my-articles/${userEmail}`)
+    const token=localStorage.getItem('token');
+    // console.log(token)
+    axios(`${baseURL}/my-articles/${userEmail}`,{
+      headers:{
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then((data) => {
         setMyArticles(data?.data);
       })

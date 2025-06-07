@@ -3,7 +3,7 @@ import React from "react";
 import TableRaw from "./TableRaw";
 
 const MyArticlesTable = ({ filteredArticles }) => {
-  console.log(filteredArticles);
+  // console.log(filteredArticles);
   return (
     <div className="">
       <table className="table">
