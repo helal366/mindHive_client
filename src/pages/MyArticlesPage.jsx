@@ -9,16 +9,10 @@ const MyArticlesPage = () => {
   const userEmail = user?.email;
   const [search, setSearch] = useState("");
   const [myArticles, setMyArticles] = useState([]);
-  const axiosURL=useAxios()
+  const axiosSecure=useAxios()
   useEffect(() => {
     window.scrollTo(0, 0);
-    const token=localStorage.getItem('token');
-    // console.log(token)
-    axiosURL(`/my-articles/${userEmail}`,{
-      headers:{
-        Authorization: `Bearer ${token}`
-      }
-    })
+    axiosSecure(`/my-articles/${userEmail}`)
       .then((data) => {
         setMyArticles(data?.data);
       })
@@ -26,7 +20,7 @@ const MyArticlesPage = () => {
         toast.error(err.message);
         console.log(err);
       });
-  }, [userEmail]);
+  }, [userEmail, axiosSecure]);
   const filteredArticles = search
     ? myArticles.filter((article) =>
         article.title.toLowerCase().includes(search.toLowerCase())
