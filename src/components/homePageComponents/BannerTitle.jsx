@@ -7,7 +7,7 @@ const BannerTitle = () => {
         <div className="flex flex-col justify-center ml-5">
           <motion.h1 
           animate={{x: [0,20,0]}}
-          transition={{duration: 9, repeat: Infinity}}
+          transition={{duration: 4, repeat: Infinity}}
           className="text-3xl sm:text-4xl font-bold my-6">
             Empower Minds, Share Knowledge!
           </motion.h1>

@@ -11,9 +11,9 @@ import { motion } from "motion/react";
 // import { toast } from "react-toastify";
 
 const RegisterPage = () => {
-  useEffect(()=>{
-      window.scrollTo(0,0)
-    },[])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const navigate = useNavigate();
   const { userCreate, userUpdate } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");
@@ -67,10 +67,9 @@ const RegisterPage = () => {
             <div className="card-body ">
               <form onSubmit={handleRegister}>
                 <motion.h2
-                  initial={{ scale: 1, x: [0] }}
+                  initial={{ scale: 1 }}
                   animate={{
-                    scale: 1,
-                    x: [0, 10, 0],
+                    scale: [1,1.05,1,0.95,1],
                     transition: { duration: 3, repeat: Infinity },
                   }}
                   className="text-xl md:text-2xl lg:text-3xl text-center font-semibold mb-5"
@@ -82,7 +81,7 @@ const RegisterPage = () => {
                   <EmailPassword />
                   <button
                     type="submit"
-                    className="btn bg-base-content text-base-100 hover:bg-base-100 hover:text-base-content mt-2"
+                    className="btn bg-base-content text-base-100 hover:bg-base-300 hover:text-base-content mt-2"
                   >
                     Register
                   </button>

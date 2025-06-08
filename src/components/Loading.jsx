@@ -4,7 +4,7 @@ const Loading = () => {
   
   return (
     <>
-      <div className="flex justify-center my-10">
+      <div className="flex justify-center my-10 min-h-screen">
         <span className="loading loading-spinner text-primary"></span>
         <span className="loading loading-spinner text-secondary"></span>
         <span className="loading loading-spinner text-accent"></span>

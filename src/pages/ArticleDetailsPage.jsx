@@ -26,7 +26,10 @@ const ArticleDetailsPage = () => {
     console.log(singleArticle, loading)
     return (
         <div>
-            article details
+            <p>article details</p>
+            <p>{id}</p>
+            <p>{singleArticle.thumbnail}</p>
+            <img className='w-full' src={singleArticle.thumbnail} alt={singleArticle.title} />
         </div>
     );
 };

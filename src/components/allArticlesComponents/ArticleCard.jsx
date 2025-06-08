@@ -33,9 +33,9 @@ const ArticleCard = ({ article }) => {
       </figure>
       <div className="card-body">
         <motion.h2
-          initial={{ x: 10, scale: 1.0 }}
-          animate={{ x: [10, 50, 10], scale: [1, 1.1, 1] }}
-          transition={{ duration: 9, repeat: Infinity }}
+          initial={{ scale: 1.0 }}
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 5, repeat: Infinity }}
           className="card-title mb-5"
         >
           &nbsp; {title}

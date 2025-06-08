@@ -36,8 +36,8 @@ const TableRaw = ({article, index}) => {
                 </td>
                 <td>
                   <div className="join join-vertical">
-                    <button data-tooltip-id='view' className="btn join-item sm:mb-1 hidden sm:block"><MdViewList size={20} color='teal'/></button>
-                    <Tooltip id='view' content='View details'/>
+                    {/* <button data-tooltip-id='view' className="btn join-item sm:mb-1 hidden sm:block"><MdViewList size={20} color='teal'/></button>
+                    <Tooltip id='view' content='View details'/> */}
                     <button data-tooltip-id='edit' className="btn join-item sm:mb-1"><MdEdit size={20} color='teal'/></button>
                     <Tooltip id='edit' content='Edit or Update'/>
                     <button data-tooltip-id='delete' className="btn join-item"><MdDeleteForever size={20} color='teal'/></button>

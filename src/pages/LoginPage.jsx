@@ -41,12 +41,11 @@ const LoginPage = () => {
             <div className="card-body ">
               <form onSubmit={handleLogin}>
                 <motion.h2
-                initial={{ scale: 1, x: [0] }}
+                initial={{ scale: 1 }}
                   animate={{
-                    scale: 1,
-                    x: [0, 10, 0],
+                    scale: [1,1.05,1,0.95,1],
                     transition: { duration: 3, repeat: Infinity },
-                  }} 
+                  }}
                 className="text-2xl sm:text-3xl md:text-4xl text-center font-semibold mb-5">
                   Please Login Here!
                 </motion.h2>
@@ -54,7 +53,7 @@ const LoginPage = () => {
                   <EmailPassword />
                   <button
                     type="submit"
-                    className="btn bg-base-content text-base-100 hover:bg-base-100 hover:text-base-content mt-2"
+                    className="btn bg-base-content text-base-100 hover:bg-base-300 hover:text-base-content mt-2"
                   >
                     Login
                   </button>

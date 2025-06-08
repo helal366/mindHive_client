@@ -29,11 +29,11 @@ const MyArticlesTable = ({ filteredArticles }) => {
                   </span>
                 </div>
                 <div className="text-sm opacity-50 font-semibold flex flex-wrap">
-                  <span className="font-bold text-xs md:text-lg">
+                  <span className="font-bold text-xs md:text-sm">
                     Published
                   </span>{" "}
                   &nbsp;
-                  <span className="font-bold text-xs md:text-lg">
+                  <span className="font-bold text-xs md:text-sm">
                     on
                   </span>
                 </div>

@@ -44,6 +44,7 @@ const ArticleFieldsets = () => {
                   <option>Sports and recreation</option>
                   <option>Science and Technology</option>
                   <option>Diet and Exercise</option>
+                  <option>Personal Finance</option>
                   <option>Art and Fashion</option>
                   <option>Pet Health</option>
                   <option>Gardening</option>
