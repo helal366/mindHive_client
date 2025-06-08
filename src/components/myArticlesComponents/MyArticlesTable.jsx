@@ -44,7 +44,7 @@ const MyArticlesTable = ({ filteredArticles }) => {
               &nbsp;
               <span className="font-bold text-xs md:text-lg">Category</span>
             </th>
-            <th>Ations</th>
+            <th className="font-bold text-xs md:text-lg">Ations</th>
           </tr>
         </thead>
         <tbody>
