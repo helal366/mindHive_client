@@ -44,6 +44,8 @@ const AuthProvider = ({children}) => {
                     toast.error(err.message);
                     console.log(err)
                 })
+            }else{
+                localStorage.removeItem('token')
             }
         });
         return ()=>{

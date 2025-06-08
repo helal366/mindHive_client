@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
-import axios from "axios";
 import { toast } from "react-toastify";
 import MyArticlesTable from "../components/myArticlesComponents/MyArticlesTable";
+import useAxios from "../hooks/useAxios";
 
 const MyArticlesPage = () => {
-  const { user, baseURL } = useAuth();
+  const { user } = useAuth();
   const userEmail = user?.email;
   const [search, setSearch] = useState("");
   const [myArticles, setMyArticles] = useState([]);
+  const axiosURL=useAxios()
   useEffect(() => {
     window.scrollTo(0, 0);
     const token=localStorage.getItem('token');
     // console.log(token)
-    axios(`${baseURL}/my-articles/${userEmail}`,{
+    axiosURL(`/my-articles/${userEmail}`,{
       headers:{
         Authorization: `Bearer ${token}`
       }
@@ -25,7 +26,7 @@ const MyArticlesPage = () => {
         toast.error(err.message);
         console.log(err);
       });
-  }, [baseURL, userEmail]);
+  }, [userEmail]);
   const filteredArticles = search
     ? myArticles.filter((article) =>
         article.title.toLowerCase().includes(search.toLowerCase())

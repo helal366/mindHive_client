@@ -5,11 +5,13 @@ import Heading from "../components/postArticleComponents/Heading";
 import SubmitButton from "../components/postArticleComponents/SubmitButton";
 import { toast } from 'react-toastify';
 import AuthorFieldset from "../components/postArticleComponents/AuthorFieldset";
+import useAuth from "../hooks/useAuth";
 
 const PostArticlesPage = () => {
   useEffect(()=>{
       window.scrollTo(0,0)
-    },[])
+    },[]);
+    const {baseURL}=useAuth()
   const handlePostArticle=e=>{
     e.preventDefault();
     const form=e.target;
@@ -19,7 +21,7 @@ const PostArticlesPage = () => {
     const tagsArray=tags.split(',').map(e=>e.trim());
     const newArticleData={...restArtisleData, tags:tagsArray}
     console.log(newArticleData, tagsArray);
-    axios.post(`${import.meta.env.VITE_API_URL}/post-article`,newArticleData)
+    axios.post(`${baseURL}/post-article`,newArticleData)
     .then(result=>{
       // console.log(result);
       if(result?.data?.acknowledged){
