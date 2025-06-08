@@ -13,8 +13,6 @@ import RootAuthLayout from "../layouts/RootAuthLayout";
 import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 import ArticleDetailsPage from "../pages/ArticleDetailsPage";
-import axiosInstance from "../hooks/axiosInstance";
-
 
 const router = createBrowserRouter([
   {
@@ -37,8 +35,6 @@ const router = createBrowserRouter([
             <AllArticlesPage />
           </Suspense>
         ),
-        loader: ()=>axiosInstance(`/articles`),
-        hydrateFallbackElement: <Loading/>
       },
       {
         path: "/my-articles",
