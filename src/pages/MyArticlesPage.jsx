@@ -3,15 +3,19 @@ import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
 import MyArticlesTable from "../components/myArticlesComponents/MyArticlesTable";
 import useAxios from "../hooks/useAxios";
+import Loading from "../components/Loading"
 
 const MyArticlesPage = () => {
   const { user } = useAuth();
   const userEmail = user?.email;
   const [search, setSearch] = useState("");
   const [myArticles, setMyArticles] = useState([]);
-  const axiosSecure=useAxios()
+  const [loading,setLoading]=useState(true)
+  const axiosSecure=useAxios();
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    setLoading(true)
     axiosSecure(`/my-articles/${userEmail}`)
       .then((data) => {
         setMyArticles(data?.data);
@@ -19,8 +23,12 @@ const MyArticlesPage = () => {
       .catch((err) => {
         toast.error(err.message);
         console.log(err);
+      }).finally(()=>{
+        setLoading(false)
       });
   }, [userEmail, axiosSecure]);
+
+  // filter for search bar
   const filteredArticles = search
     ? myArticles.filter((article) =>
         article.title.toLowerCase().includes(search.toLowerCase())
@@ -41,7 +49,8 @@ const MyArticlesPage = () => {
         </h2>
       </div>
 
-          <MyArticlesTable filteredArticles={filteredArticles} />
+        {loading?<Loading/>:<MyArticlesTable filteredArticles={filteredArticles} />}
+          
       
     </div>
   );
