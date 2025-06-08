@@ -7,13 +7,16 @@ const axiosInstance = axios.create({
 });
 const useAxios = () => {
   useEffect(() => {
-    axiosInstance.interceptors.request.use((config) => {
+    const requestInterceptor= axiosInstance.interceptors.request.use((config) => {
       const token = localStorage.getItem("token");
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
       return config;
     });
+    return ()=>{
+    axiosInstance.interceptors.request.eject(requestInterceptor)
+  }
   }, []);
 
   return axiosInstance;

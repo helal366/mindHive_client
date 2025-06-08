@@ -5,13 +5,15 @@ import Heading from "../components/postArticleComponents/Heading";
 import SubmitButton from "../components/postArticleComponents/SubmitButton";
 import { toast } from 'react-toastify';
 import AuthorFieldset from "../components/postArticleComponents/AuthorFieldset";
-import useAuth from "../hooks/useAuth";
+// import useAuth from "../hooks/useAuth";
+import useAxios from "../hooks/useAxios";
 
 const PostArticlesPage = () => {
   useEffect(()=>{
       window.scrollTo(0,0)
     },[]);
-    const {baseURL}=useAuth()
+    const axiosSecure=useAxios()
+    // const {baseURL}=useAuth()
   const handlePostArticle=e=>{
     e.preventDefault();
     const form=e.target;
@@ -21,7 +23,7 @@ const PostArticlesPage = () => {
     const tagsArray=tags.split(',').map(e=>e.trim());
     const newArticleData={...restArtisleData, tags:tagsArray}
     console.log(newArticleData, tagsArray);
-    axios.post(`${baseURL}/post-article`,newArticleData)
+    axiosSecure.post(`/post-article`,newArticleData)
     .then(result=>{
       // console.log(result);
       if(result?.data?.acknowledged){
