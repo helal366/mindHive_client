@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import axios from 'axios';
+// import axios from 'axios';
 import ArticleFieldsets from "../components/postArticleComponents/ArticleFieldsets";
 import Heading from "../components/postArticleComponents/Heading";
 import SubmitButton from "../components/postArticleComponents/SubmitButton";
@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import AuthorFieldset from "../components/postArticleComponents/AuthorFieldset";
 // import useAuth from "../hooks/useAuth";
 import useAxios from "../hooks/useAxios";
+// import axiosInstance from "../hooks/axiosInstance";
 
 const PostArticlesPage = () => {
   useEffect(()=>{

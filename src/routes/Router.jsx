@@ -12,10 +12,10 @@ import AboutUsPage from "../pages/AboutUsPage";
 import RootAuthLayout from "../layouts/RootAuthLayout";
 import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
-import axios from "axios";
 import ArticleDetailsPage from "../pages/ArticleDetailsPage";
+import axiosInstance from "../hooks/axiosInstance";
 
-const baseURL=import.meta.env.VITE_API_URL;
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             <AllArticlesPage />
           </Suspense>
         ),
-        loader: ()=>axios(`${baseURL}/articles`),
+        loader: ()=>axiosInstance(`/articles`),
         hydrateFallbackElement: <Loading/>
       },
       {
@@ -68,10 +68,7 @@ const router = createBrowserRouter([
               <ArticleDetailsPage />
             </PrivateRoute>
           </Suspense>
-        ),
-        loader:({params})=>axios(`${baseURL}/article/${params.id}`),
-        hydrateFallbackElement: <Loading/>
-      },
+        )},
       {
         path: "about-us",
         element: (
