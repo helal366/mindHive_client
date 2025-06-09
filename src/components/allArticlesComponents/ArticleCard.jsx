@@ -22,7 +22,7 @@ const ArticleCard = ({ article }) => {
         y: [0, 2, 2, 2, 0, -2, -2, -2, 0],
       }}
       whileHover={{ scale: [1.05, 1.0, 1.05] }}
-      style={{ boxShadow: "0px 10px 20px rgba(255,255,255,0.8" }}
+      style={{ boxShadow: "0px 6px 12px rgba(255,255,255,0.8" }}
       transition={{duration:3, repeat:Infinity}}
       className="card bg-success text-success-content shadow-2xl border border-primary"
     >

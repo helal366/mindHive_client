@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 
 const NavbarDropdown = () => {
   const { user, userLogout } = useAuth();
-  console.log(user)
   const daisyImage =
     "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp";
   const userImage = user ? user?.photoURL : daisyImage;
@@ -15,7 +14,6 @@ const NavbarDropdown = () => {
         toast.success("You logged out successfully.");
       })
       .catch((err) => {
-        console.log(err);
         toast.error(err.message)
       });
   };

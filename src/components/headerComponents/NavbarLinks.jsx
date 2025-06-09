@@ -13,7 +13,7 @@ const NavbarLinks = () => {
             whileTap={{ scale: 0.95 }}
             transition={{duration:0.3, ease: easeInOut}}
           className="btn text-base-content bg-base-100 group">
-            <span className="group-hover:text-cyan-500 transition-colors duration-300">
+            <span className="text-cyan-600 transition-colors duration-300">
               Home
             </span>
           </motion.button>
@@ -27,7 +27,7 @@ const NavbarLinks = () => {
             whileTap={{ scale: 0.95 }}
             transition={{duration:0.3, ease: easeInOut}}
           className="btn text-base-content bg-base-100 group">
-            <span className="group-hover:text-cyan-500 transition-colors duration-300">
+            <span className="text-cyan-600 transition-colors duration-300">
                All Articles
             </span>
           </motion.button>
@@ -41,7 +41,7 @@ const NavbarLinks = () => {
             whileTap={{ scale: 0.95 }}
             transition={{duration:0.3, ease: easeInOut}}
           className="btn text-base-content bg-base-100 group">
-            <span className="group-hover: text-cyan-500 transition-colors duration-300">
+            <span className="text-cyan-600 transition-colors duration-300">
               My Articles
             </span>
           </motion.button>
@@ -55,7 +55,7 @@ const NavbarLinks = () => {
             whileTap={{ scale: 0.95 }}
             transition={{duration:0.3, ease: easeInOut}}
           className="btn text-base-content bg-base-100 group">
-            <span className="group-hover: text-cyan-500 transition-colors duration-300">
+            <span className="text-cyan-600 transition-colors duration-300">
               Post Articles
             </span>
           </motion.button>
@@ -69,7 +69,7 @@ const NavbarLinks = () => {
             whileTap={{ scale: 0.95 }}
             transition={{duration:0.3, ease: easeInOut}}
           className="btn text-base-content bg-base-100 group">
-            <span className="group-hover: text-cyan-500 transition-colors duration-300">
+            <span className="text-cyan-600 transition-colors duration-300">
               About us
             </span>
           </motion.button>

@@ -4,7 +4,7 @@ import { motion } from "motion/react"
 
 const BannerTitle = () => {
     return (
-        <div className="flex flex-col justify-center ml-5">
+        <div className="flex flex-col justify-center ml-5 mb-2 sm:mb-4 md:mb-6 lg:mb-8">
           <motion.h1 
           animate={{x: [0,20,0]}}
           transition={{duration: 4, repeat: Infinity}}

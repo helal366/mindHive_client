@@ -25,7 +25,6 @@ const RegisterPage = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photo, email, password);
     const passwordRegEx = /(?=.*[a-z])(?=.*[A-Z]).{6,}/;
     setErrorMessage("");
     if (!passwordRegEx.test(password)) {
@@ -39,8 +38,8 @@ const RegisterPage = () => {
       photoURL: photo,
     };
     userCreate(email, password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
+        
         userUpdate(updatedDec)
           .then(() => {
             toast.success(`You have been registered successfully.`);
@@ -48,22 +47,22 @@ const RegisterPage = () => {
             form.reset();
           })
           .catch((err) => {
-            console.log(err);
+            toast.error(err.message);
           });
       })
       .catch((err) => {
-        console.log(err);
+         toast.error(err.message);
       });
   };
   return (
     <>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-200 min-h-screen ">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="hidden lg:block">
             <SignUpOne></SignUpOne>
           </div>
 
-          <div className="card bg-base-100 w-full mx-auto my-10 max-w-sm shrink-0 shadow-2xl glass">
+          <div className="card bg-base-100 w-full mx-auto my-10 max-w-sm shrink-0 drop-shadow-2xl ">
             <div className="card-body ">
               <form onSubmit={handleRegister}>
                 <motion.h2
