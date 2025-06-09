@@ -1,15 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import TableRaw from "./TableRaw";
-
-const MyArticlesTable = ({ filteredArticles }) => {
-  // console.log(filteredArticles);
-  return (
-    <div className="">
-      <table className="table">
-        {/* head */}
-        <thead>
-          <tr>
+const TableHead = () => {
+    return (
+        <>
+            <tr className='border-b-3 border-dashed border-base-200'>
             <th>#</th>
             <th className="hidden sm:block"> 
                 <span className="font-bold text-xs md:text-lg">Thumbnail</span>{" "}
@@ -17,7 +11,7 @@ const MyArticlesTable = ({ filteredArticles }) => {
               <span className="font-bold text-xs md:text-lg">Photo</span>
 
             </th>
-            <th>
+            <th >
           
                 <div className="flex flex-wrap">
                   <span className="font-bold text-xs md:text-lg">
@@ -44,18 +38,12 @@ const MyArticlesTable = ({ filteredArticles }) => {
               &nbsp;
               <span className="font-bold text-xs md:text-lg">Category</span>
             </th>
-            <th className="font-bold text-xs md:text-lg">Ations</th>
+            <th className=' font-bold text-xs md:text-lg p-0'>
+                Actions
+            </th>
           </tr>
-        </thead>
-        <tbody>
-          {/* row 1 */}
-          {filteredArticles.map((article, index) => (
-            <TableRaw key={article._id} article={article} index={index} />
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+        </>
+    );
 };
 
-export default MyArticlesTable;
+export default TableHead;

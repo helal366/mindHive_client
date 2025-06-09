@@ -18,7 +18,7 @@ const NavbarDropdown = () => {
       });
   };
   return (
-    <div className="dropdown dropdown-end">
+    <div className="dropdown dropdown-end z-30">
       <div tabIndex={0} role="button" className="btn btn-circle avatar">
         <div className="w-10 rounded-full">
           <img alt={user?.name} src={userImage} />

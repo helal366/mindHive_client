@@ -5,7 +5,7 @@ const StickyTopBar = ({ singleArticle }) => {
   const { authorEmail, authorName, authorPhoto } = singleArticle;
   return (
     <>
-      <div className="z-50 mb-2 sm:mb-4 md:mb-8 rounded-lg bg-base-300 py-3 sm:py-4 px-1 sm:px-2 md:px-6 flex flex-wrap items-center justify-between sticky top-0 border border-gray-200">
+      <div className="z-20 mb-2 sm:mb-4 md:mb-8 rounded-lg bg-base-300 py-3 sm:py-4 px-1 sm:px-2 md:px-6 flex flex-wrap items-center justify-between sticky top-0 border border-gray-200">
         <div className="flex gap-1 sm:gap-2 md:gap-4 flex-wrap items-center">
           <div className="w-6 h-6 sm:w-8 sm:h-8  rounded-full p-1 ring-1 bg-white">
             <img

@@ -8,7 +8,7 @@ const Motions = () => {
                   initial={{scale: 0.97, opacity:0.6}}
                   animate={{scale:[0.97,1.02,0.97], opacity: [0.8,1.0,0.8]}}
                   transition={{duration:4, repeat:Infinity}}
-                  className="max-w-sm bg-[url('https://i.postimg.cc/85ycNvXz/diet.png')] bg-center bg-cover shadow-2xl   min-h-40 rounded-bl-xl border-3 border-neutral-500 ">
+                  className="max-w-sm bg-[url('https://i.postimg.cc/85ycNvXz/diet.png')] bg-center bg-cover shadow-2xl min-h-40 rounded-bl-xl border-3 border-neutral-500 ">
                     
                   </motion.div>
                   <motion.div 
@@ -21,7 +21,7 @@ const Motions = () => {
                   initial={{scale: 0.97, opacity:0.6}}
                   animate={{scale:[0.97,1.02,0.97], opacity: [0.8,1.0,0.8]}}
                   transition={{duration:4, repeat:Infinity}}
-                  className="max-w-sm bg-[url('https://i.postimg.cc/GhvYHV1y/politics.png')] bg-center bg-cover shadow-2xl rounded-tl-xl min-h-40 border-3 border-neutral-500 hidden md:block">
+                  className="max-w-sm bg-[url('https://i.postimg.cc/PxXp8mJR/gardening3.png')] bg-center bg-cover shadow-2xl rounded-tl-xl min-h-40 border-3 border-neutral-500 hidden md:block">
                   </motion.div>
                   <motion.div 
                    initial={{scale: 0.97, opacity:0.6}}
@@ -39,7 +39,7 @@ const Motions = () => {
                    initial={{scale: 0.97, opacity:0.6}}
                   animate={{scale:[0.97,1.02,0.97], opacity: [0.8,1.0,0.8]}}
                   transition={{duration:4, repeat:Infinity}}
-                  className="max-w-sm bg-[url('https://i.postimg.cc/KvnfFYcX/sports.jpg')] bg-center bg-cover shadow-2xl rounded-br-xl min-h-40 border-3 border-neutral-500 hidden md:block">
+                  className="max-w-sm bg-[url('https://i.postimg.cc/VLskyWbv/travel-santorini.png')] bg-center bg-cover shadow-2xl rounded-br-xl min-h-40 border-3 border-neutral-500 hidden md:block">
                   </motion.div>
                   <motion.div 
                    initial={{scale: 0.97, opacity:0.6}}

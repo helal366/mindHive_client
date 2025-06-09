@@ -2,8 +2,8 @@ import React from "react";
 import { format } from "date-fns";
 import { MdDeleteForever } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
-// import { MdViewList } from "react-icons/md";
 import { Tooltip } from "react-tooltip";
+import Modal from "./modalForm/Modal";
 
 const TableRaw = ({ article, index }) => {
   const { title, _id, thumbnail, category, publicationDate } = article;
@@ -32,9 +32,11 @@ const TableRaw = ({ article, index }) => {
         </td>
         <td>
           <div className="join join-vertical">
-            {/* <button data-tooltip-id='view' className="btn join-item sm:mb-1 hidden sm:block"><MdViewList size={20} color='teal'/></button>
-                    <Tooltip id='view' content='View details'/> */}
-            <button data-tooltip-id="edit" className="btn join-item sm:mb-1">
+           
+            <button 
+            onClick={() => document.getElementById(`${_id}`).showModal()}
+            data-tooltip-id="edit" 
+            className="btn join-item sm:mb-1">
               <MdEdit size={20} color="teal" />
             </button>
             <Tooltip id="edit" content="Edit or Update" />
@@ -43,6 +45,11 @@ const TableRaw = ({ article, index }) => {
             </button>
             <Tooltip id="delete" content="Delete" />
           </div>
+
+          {/* modal */}
+          <dialog id={`${_id}`} className="modal ">
+            <Modal id={`${_id}`}/>
+          </dialog>
         </td>
       </tr>
     </>

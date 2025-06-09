@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
-import MyArticlesTable from "../components/myArticlesComponents/MyArticlesTable";
 import useAxios from "../hooks/useAxios";
 import Loading from "../components/Loading";
+import MyArticlesTable from "../components/myArticlesComponents/myArticleTable/MyArticlesTable";
 // import axiosInstance from "../hooks/axiosInstance";
 
 const MyArticlesPage = () => {
@@ -50,7 +50,7 @@ const MyArticlesPage = () => {
               placeholder="Search by title"
               className="input input-bordered w-auto my-2 sm:my-10"
             />
-            <h2 className="text-base sm:text-xl md:text-3xl text-center font-semibold my-10">
+            <h2 className="text-base sm:text-xl md:text-3xl text-center font-semibold my-4 sm:my-6 md:my-8 lg:my-10">
               My Articles: {myArticles.length}
             </h2>
           </div>
