@@ -30,6 +30,12 @@ const MyArticlesPage = () => {
       });
   }, [userEmail, axiosSecure]);
 
+  // after deletion, delete from ui
+  const handleDeletedUI=(deletedID)=>{
+    const newMyArticles=myArticles.filter(article=>article._id!==deletedID);
+    setMyArticles(()=>newMyArticles)
+  }
+
   // filter for search bar
   const filteredArticles = search
     ? myArticles.filter((article) =>
@@ -55,7 +61,7 @@ const MyArticlesPage = () => {
             </h2>
           </div>
 
-          <MyArticlesTable filteredArticles={filteredArticles} />
+          <MyArticlesTable filteredArticles={filteredArticles} handleDeletedUI={handleDeletedUI}/>
         </div>
       )}
     </>
