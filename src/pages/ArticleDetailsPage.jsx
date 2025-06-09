@@ -11,12 +11,11 @@ import ContentAndOthers from "../components/articleDetailsPageComponents/Content
 const ArticleDetailsPage = () => {
   const { id } = useParams();
   const [singleArticle, setSingleArticle] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const axiosSecure = useAxios();
   useEffect(() => {
-    setLoading(true);
     window.scrollTo(0, 0);
-
+    setLoading(true);
     axiosSecure
       .get(`/article/${id}`)
       .then((data) => {
