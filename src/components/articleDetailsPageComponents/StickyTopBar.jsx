@@ -10,6 +10,7 @@ import useAxios from "./../../hooks/useAxios";
 import Loading from "./../Loading";
 import StickyCommentModal from "./StickyCommentModal";
 import StickyLike from "./StickyLike";
+import { Tooltip } from "react-tooltip";
 
 const StickyTopBar = ({ singleArticle }) => {
   const axiosSucure = useAxios();
@@ -103,9 +104,11 @@ const StickyTopBar = ({ singleArticle }) => {
             <div className="relative">
               <button 
               onClick={() => document.getElementById(`${_id}`).showModal()}
+              data-tooltip-id="comment"
               className="cursor-pointer transition-transform duration-300 hover:scale-120 active:scale-90 text-neutral-600/60 p-1 border border-neutral-600 rounded-full">
-                <BiSolidCommentDetail fill={'white'} size={20} />
+                <BiSolidCommentDetail fill={'gray'} size={20} />
               </button>
+              <Tooltip id="comment" content="Click here to comment"/>
               <span 
               className="absolute -top-3 right-1 text-[9px] sm:text-[10px] md:text-xs text-neutral-600 z-10 font-bold">
                 40
