@@ -41,6 +41,7 @@ const Modal = ({ id }) => {
       ) : (
         <div>
           <div className="modal-box max-w-5xl w-11/12 mx-auto relative py-1 sm:py-2 md:py-3 lg:py-4 overflow-hidden">
+          {/* sticky */}
             <div className="sticky top-0 bg-base-100 pb-2 border-b-3 border-dashed border-base-200">
               <h3 className="font-bold text-lg">Update here!</h3>
               <form method="dialog">
@@ -49,7 +50,7 @@ const Modal = ({ id }) => {
                 </button>
               </form>
             </div>
-
+          {/* scroll */}
             <div className="overflow-y-auto max-h-[85vh] py-5 px-2">
               <p className="py-4">
                 Here you can update your article informations like title of the

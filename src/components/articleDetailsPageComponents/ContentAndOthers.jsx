@@ -7,10 +7,10 @@ const ContentAndOthers = ({singleArticle}) => {
     return (
         <>
              <div className="mb-4 md:mb-8 lg:mb-10 bg-base-200 py-3 sm:py-4 px-2 md:px-6 shadow-2xl shadow-neutral-300 rounded-2xl">
-            <p className="font-semibold md:text-2xl sm:text-xl text-lg opacity-90 mb-2 sm:mb-4 md:mb-6 bg-base-100 px-2 sm:px-3 py-2 sm:py-3 rounded-xl">
+            <p className="font-semibold md:text-2xl sm:text-xl text-lg opacity-90 mb-2 sm:mb-4 md:mb-6 bg-base-100 px-2 lg:mx-20 md:mx-12 sm:mx-4 py-2 sm:py-3 rounded-xl">
               {title}
             </p>
-            <p className="font-medium text-base sm:text-lg md:text-xl mb-1 md:mb-2 opacity-80 lg:mx-20 md:mx-12 sm:mx-4 inline-block bg-base-100 p-1 rounded-sm">
+            <p className="font-medium text-base sm:text-lg md:text-xl mb-1 md:mb-2 opacity-80 lg:mx-20 md:mx-12 sm:mx-4 inline-block bg-base-100 p-2 rounded-md">
               <span>Article Category: </span>
               {category}
             </p>

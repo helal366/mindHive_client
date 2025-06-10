@@ -9,7 +9,7 @@ const StickyLike = ({handleLike, likedUserEmails, userEmail, likeCount}) => {
                         onClick={handleLike}
                       >
                         <BiSolidLike
-                          fill={`${likedUserEmails?.includes(userEmail) ? "red" : ""}`}
+                          fill={`${likedUserEmails?.includes(userEmail) ? "red" : "white"}`}
                           size={20}
                         />
                       </button>

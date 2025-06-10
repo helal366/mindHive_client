@@ -104,7 +104,7 @@ const StickyTopBar = ({ singleArticle }) => {
               <button 
               onClick={() => document.getElementById(`${_id}`).showModal()}
               className="cursor-pointer transition-transform duration-300 hover:scale-120 active:scale-90 text-neutral-600/60 p-1 border border-neutral-600 rounded-full">
-                <BiSolidCommentDetail fill={''} size={20} />
+                <BiSolidCommentDetail fill={'white'} size={20} />
               </button>
               <span 
               className="absolute -top-3 right-1 text-[9px] sm:text-[10px] md:text-xs text-neutral-600 z-10 font-bold">
@@ -115,7 +115,9 @@ const StickyTopBar = ({ singleArticle }) => {
 
           {/* comment modal */}
           <dialog id={`${_id}`} className="modal">
-            <StickyCommentModal singleArticle={singleArticle}/>
+            <StickyCommentModal 
+            likeCount={likeCount}
+            singleArticle={singleArticle}/>
             
           </dialog>
         </div>
