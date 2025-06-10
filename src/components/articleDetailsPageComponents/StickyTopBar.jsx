@@ -1,50 +1,53 @@
 import React from "react";
 import { useState } from "react";
-import { BiSolidCommentDetail, BiSolidDislike, BiSolidLike } from "react-icons/bi";
+import {
+  BiSolidCommentDetail,
+  BiSolidLike,
+} from "react-icons/bi";
 import Swal from "sweetalert2";
 import useAuth from "./../../hooks/useAuth";
 import useAxios from "./../../hooks/useAxios";
 import Loading from "./../Loading";
+import StickyCommentModal from "./StickyCommentModal";
+import StickyLike from "./StickyLike";
 
 const StickyTopBar = ({ singleArticle }) => {
   const axiosSucure = useAxios();
   const { user } = useAuth();
   const userEmail = user?.email;
   const [loading, setLoading] = useState(false);
-  const { authorEmail, authorName, authorPhoto, _id, likes, likedUsers } =
+  const { authorEmail, authorName, authorPhoto, _id, likedUsers } =
     singleArticle;
   const [likeCount, setLikeCount] = useState(
-    likedUsers?.length>0 ? likedUsers.length : 0
+    likedUsers?.length > 0 ? likedUsers.length : 0
   );
   const [likedUserEmails, setLikedUserEmails] = useState(
-    likedUsers?.length>0 ? likedUsers : []
+    likedUsers?.length > 0 ? likedUsers : []
   );
-  
+
   // handleLike function
   const handleLike = () => {
-    if(!Array.isArray(likedUserEmails)){
+    if (!Array.isArray(likedUserEmails)) {
       setLikedUserEmails([]);
-      return
+      return;
     }
     const emailExist = likedUserEmails?.includes(userEmail);
-    
-    let updatedLikes
-    let updatedUserEmails=[...likedUserEmails]
+
+    let updatedLikes;
+    let updatedUserEmails = [...likedUserEmails];
     if (emailExist) {
       updatedLikes = likeCount - 1;
-      updatedUserEmails = likedUserEmails?.filter(
-        (user) => user !== userEmail
-      );      
+      updatedUserEmails = likedUserEmails?.filter((user) => user !== userEmail);
     } else {
       updatedLikes = likeCount + 1;
       updatedUserEmails = [...likedUserEmails, userEmail];
     }
-     const updatedDoc = {
-        likes: parseInt(updatedLikes),
-        likedUsers: updatedUserEmails,
-      };
-      setLikeCount(updatedLikes);
-      setLikedUserEmails(updatedUserEmails);
+    const updatedDoc = {
+      likes: parseInt(updatedLikes),
+      likedUsers: updatedUserEmails,
+    };
+    setLikeCount(updatedLikes);
+    setLikedUserEmails(updatedUserEmails);
     setLoading(true);
     axiosSucure
       .patch(`/article-like/${_id}`, updatedDoc)
@@ -58,8 +61,12 @@ const StickyTopBar = ({ singleArticle }) => {
           text: err.message,
           timer: 2000,
         });
-        setLikeCount(emailExist?updatedLikes+1:updatedLikes-1);
-        setLikedUserEmails(emailExist?[...updatedUserEmails,userEmail]:updatedUserEmails.filter(email=>email!==userEmail))
+        setLikeCount(emailExist ? updatedLikes + 1 : updatedLikes - 1);
+        setLikedUserEmails(
+          emailExist
+            ? [...updatedUserEmails, userEmail]
+            : updatedUserEmails.filter((email) => email !== userEmail)
+        );
       })
       .finally(() => {
         setLoading(false);
@@ -88,27 +95,29 @@ const StickyTopBar = ({ singleArticle }) => {
             </p>
           </div>
           <div className="flex gap-2 sm:gap-4 md:gap-8 items-center justify-end">
+            <StickyLike 
+            likeCount={likeCount}
+            userEmail={userEmail}
+            likedUserEmails={likedUserEmails}
+            handleLike={handleLike}/>
             <div className="relative">
-              <button
-                className="cursor-pointer transition-transform duration-300 hover:scale-120 active:scale-90 text-neutral-600/60 p-1 border border-neutral-600 rounded-full"
-                onClick={handleLike}
-              >
-                <BiSolidLike fill={`${likedUserEmails?.includes(userEmail)?'red':''}`} size={20} />
-                
+              <button 
+              onClick={() => document.getElementById(`${_id}`).showModal()}
+              className="cursor-pointer transition-transform duration-300 hover:scale-120 active:scale-90 text-neutral-600/60 p-1 border border-neutral-600 rounded-full">
+                <BiSolidCommentDetail fill={''} size={20} />
               </button>
-              <span className="absolute -top-3 right-1 text-[9px] sm:text-[10px] md:text-xs text-neutral-600 z-10 font-bold">
-                {likeCount}
-              </span>
-            </div>
-            <div className="relative">
-              <button className="cursor-pointer transition-transform duration-300 hover:scale-120 active:scale-90 text-neutral-600/60 p-1 border border-neutral-600 rounded-full">
-                <BiSolidCommentDetail size={20} />
-              </button>
-              <span className="absolute -top-3 right-1 text-[9px] sm:text-[10px] md:text-xs text-neutral-600 z-10 font-bold">
+              <span 
+              className="absolute -top-3 right-1 text-[9px] sm:text-[10px] md:text-xs text-neutral-600 z-10 font-bold">
                 40
               </span>
             </div>
           </div>
+
+          {/* comment modal */}
+          <dialog id={`${_id}`} className="modal">
+            <StickyCommentModal singleArticle={singleArticle}/>
+            
+          </dialog>
         </div>
       )}
     </>

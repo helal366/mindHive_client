@@ -54,7 +54,7 @@ const MyArticlesPage = () => {
               onChange={(e) => setSearch(e.target.value)}
               type="text"
               placeholder="Search by title"
-              className="input input-bordered w-auto my-2 sm:my-10"
+              className="input input-bordered w-auto my-2 sm:my-10 bg-base-200"
             />
             <h2 className="text-base sm:text-xl md:text-3xl text-center font-semibold my-4 sm:my-6 md:my-8 lg:my-10">
               My Articles: {myArticles.length}

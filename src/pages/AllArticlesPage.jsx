@@ -23,14 +23,9 @@ const AllArticlesPage = () => {
       }).finally(()=>{
         setLoading(false)
       })
-    },[baseURL,search])
-  
-  
-
-  
+    },[baseURL,search])  
   return (
-    <>
-    
+    <>    
     {
       loading? <Loading/> : <div className="pb-16">
       <div className="flex justify-between">
@@ -38,7 +33,7 @@ const AllArticlesPage = () => {
         onChange={e=>setSearch(e.target.value)}
           type="text"
           placeholder="Search by title"
-          className="input input-bordered w-24 md:w-auto  my-10"
+          className="input input-bordered w-24 md:w-auto  my-10 bg-base-200"
         />
         <h2 className="text-3xl text-center font-semibold my-10">
           Total Articles: {allArticles.length}

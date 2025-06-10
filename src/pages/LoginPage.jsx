@@ -5,12 +5,13 @@ import EmailPassword from "../components/loginRegisterComponents/EmailPassword";
 import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
 import SignUpOne from "../lotties/one/signupOne";
-import {motion} from "motion/react"
+import { motion } from "motion/react";
+import Swal from "sweetalert2";
 
 const LoginPage = () => {
-  useEffect(()=>{
-      window.scrollTo(0,0)
-    },[])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const navigate = useNavigate();
   const { userLogin } = useAuth();
 
@@ -22,12 +23,23 @@ const LoginPage = () => {
     console.log(email, password);
     userLogin(email, password)
       .then(() => {
-        toast.success(`You logged in successfully.`);
+        Swal.fire({
+          title: "You have successfully logged in!",
+          icon: "success",
+          timer: 2000,
+          draggable: true,
+        });
         navigate("/");
         form.reset();
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          title: "Oops!",
+          text: err.message || 'Something went wrong!',
+          icon: "error",
+          draggable: true,
+        });
       });
   };
   return (
@@ -41,12 +53,13 @@ const LoginPage = () => {
             <div className="card-body ">
               <form onSubmit={handleLogin}>
                 <motion.h2
-                initial={{ scale: 1 }}
+                  initial={{ scale: 1 }}
                   animate={{
-                    scale: [1,1.05,1,0.95,1],
+                    scale: [1, 1.05, 1, 0.95, 1],
                     transition: { duration: 3, repeat: Infinity },
                   }}
-                className="text-2xl sm:text-3xl md:text-4xl text-center font-semibold mb-5">
+                  className="text-2xl sm:text-3xl md:text-4xl text-center font-semibold mb-5"
+                >
                   Please Login Here!
                 </motion.h2>
                 <fieldset className="fieldset">

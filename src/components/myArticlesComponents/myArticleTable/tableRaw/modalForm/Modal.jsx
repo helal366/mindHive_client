@@ -40,7 +40,7 @@ const Modal = ({ id }) => {
         <Loading />
       ) : (
         <div>
-          <div className="modal-box max-w-5xl w-11/12 mx-auto relative py-4 overflow-hidden">
+          <div className="modal-box max-w-5xl w-11/12 mx-auto relative py-1 sm:py-2 md:py-3 lg:py-4 overflow-hidden">
             <div className="sticky top-0 bg-base-100 pb-2 border-b-3 border-dashed border-base-200">
               <h3 className="font-bold text-lg">Update here!</h3>
               <form method="dialog">
