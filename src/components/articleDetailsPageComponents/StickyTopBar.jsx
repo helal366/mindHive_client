@@ -12,7 +12,7 @@ import StickyCommentModal from "./StickyCommentModal";
 import StickyLike from "./StickyLike";
 import { Tooltip } from "react-tooltip";
 
-const StickyTopBar = ({ singleArticle, articleComments }) => {
+const StickyTopBar = ({ singleArticle, articleComments, setArticleComments }) => {
   const axiosSucure = useAxios();
   const { user } = useAuth();
   const userEmail = user?.email;
@@ -120,7 +120,9 @@ const StickyTopBar = ({ singleArticle, articleComments }) => {
           <dialog id={`${_id}`} className="modal">
             <StickyCommentModal 
             likeCount={likeCount}
-            singleArticle={singleArticle}/>
+            singleArticle={singleArticle}
+            articleComments={articleComments}
+            setArticleComments={setArticleComments}/>
             
           </dialog>
         </div>

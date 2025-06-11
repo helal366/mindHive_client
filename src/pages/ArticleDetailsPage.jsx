@@ -42,7 +42,8 @@ const ArticleDetailsPage = () => {
           {/* sticky top bar */}
           <StickyTopBar 
           singleArticle={singleArticle} 
-          articleComments={articleComments}/>
+          articleComments={articleComments}
+          setArticleComments={setArticleComments}/>
           {/* thumbnail */}
           <ThumbnailPhoto singleArticle={singleArticle} />
           {/* content and others */}

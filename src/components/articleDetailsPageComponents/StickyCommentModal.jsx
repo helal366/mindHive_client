@@ -5,7 +5,7 @@ import CommentModalScroll from "./stickyCommentModal/CommentModalScroll";
 import CommentModalTop from "./stickyCommentModal/CommentModalTop";
 import useAxios from "./../../hooks/useAxios";
 
-const StickyCommentModal = ({ singleArticle, likeCount }) => {
+const StickyCommentModal = ({ singleArticle, likeCount, articleComments, setArticleComments }) => {
   const { user } = useAuth();
   const { authorName, content, _id, title } = singleArticle;
   const axiosSecure = useAxios();
@@ -19,7 +19,7 @@ const StickyCommentModal = ({ singleArticle, likeCount }) => {
     const wordsList = wordsArray.length > wordLimit ? sliceContent : content;
     return wordsList;
   };
-  const result = shortContent(content, 400);
+  const result = shortContent(content, 40);
 
   const handleComment = (e) => {
     e.preventDefault;
@@ -40,6 +40,9 @@ const StickyCommentModal = ({ singleArticle, likeCount }) => {
       .then((result) => {
         // console.log(result?.data);
         if (result?.data?.acknowledged) {
+          const comment=result?.data;
+          const newArticleComments=[...articleComments, comment];
+          setArticleComments(newArticleComments)
           Swal.fire({
             title: "Comment successful.",
             icon: "success",
@@ -52,10 +55,9 @@ const StickyCommentModal = ({ singleArticle, likeCount }) => {
         console.log(err);
       });
   };
-  // console.log(user.displayName, user.email, _id, authorName, authorEmail);
   return (
     <section>
-      <div className="modal-box max-w-xl relative py-1 sm:py-2 md:py-3 lg:py-4 overflow-hidden">
+      <div className="modal-box max-w-2xl relative py-1 sm:py-2 md:py-3 lg:py-4 overflow-hidden">
         {/* top sticky */}
         <CommentModalTop authorName={authorName} />
 
@@ -64,6 +66,7 @@ const StickyCommentModal = ({ singleArticle, likeCount }) => {
           likeCount={likeCount}
           result={result}
           singleArticle={singleArticle}
+          articleComments={articleComments}
         />
 
         {/* bottom sticky */}
@@ -89,11 +92,6 @@ const StickyCommentModal = ({ singleArticle, likeCount }) => {
               </div>
             </form>
           </div>
-          {/* <form method="dialog">
-            <button className="bg-base-100 px-3 py-1 rounded-lg text-[10px] cursor-pointer absolute left-5 bottom-5">
-              Cancel
-            </button>
-          </form> */}
         </div>
       </div>
     </section>
