@@ -79,7 +79,7 @@ const StickyTopBar = ({ singleArticle }) => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="z-20 mb-2 sm:mb-4 md:mb-8 rounded-lg bg-base-300 py-3 sm:py-4 px-1 sm:px-2 md:px-6 flex flex-wrap items-center justify-between sticky top-0 border border-gray-200">
+        <div className="z-20 mb-2 sm:mb-4 md:mb-8 rounded-lg bg-base-300 py-3 sm:py-4 px-1 sm:px-2 md:px-6 flex flex-wrap items-center justify-between sticky top-0 border border-gray-200 shadow-md shadow-neutral-600">
           <div className="flex gap-1 sm:gap-2 md:gap-4 flex-wrap items-center">
             <div className="w-6 h-6 sm:w-8 sm:h-8  rounded-full p-1 ring-1 bg-white">
               <img
@@ -110,7 +110,7 @@ const StickyTopBar = ({ singleArticle }) => {
               </button>
               <Tooltip id="comment" content="Click here to comment"/>
               <span 
-              className="absolute -top-3 right-1 text-[9px] sm:text-[10px] md:text-xs text-neutral-600 z-10 font-bold">
+              className="absolute -top-3 right-1 text-[9px] sm:text-[10px] md:text-xs text-gray-500 z-10 font-bold">
                 40
               </span>
             </div>

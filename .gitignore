@@ -1,5 +1,7 @@
 .env.local
 firebase
+dist
+.firebase
 
 
 # Logs

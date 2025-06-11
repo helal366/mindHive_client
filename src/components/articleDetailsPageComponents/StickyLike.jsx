@@ -16,7 +16,7 @@ const StickyLike = ({handleLike, likedUserEmails, userEmail, likeCount}) => {
                         />
                       </button>
                       <Tooltip id='like' content='Click here to like this aarticle'/>
-                      <span className="absolute -top-3 right-1 text-[9px] sm:text-[10px] md:text-xs text-neutral-600 z-10 font-bold">
+                      <span className="absolute -top-3 right-1 text-[9px] sm:text-[10px] md:text-xs text-gray-500 z-10 font-bold">
                         {likeCount}
                       </span>
                     </div>
