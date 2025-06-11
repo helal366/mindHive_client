@@ -3,7 +3,6 @@ import SocialLogin from "../components/loginRegisterComponents/SocialLogin";
 import { Link, useNavigate } from "react-router";
 import EmailPassword from "../components/loginRegisterComponents/EmailPassword";
 import useAuth from "../hooks/useAuth";
-import { toast } from "react-toastify";
 import SignUpOne from "../lotties/one/signupOne";
 import { motion } from "motion/react";
 import Swal from "sweetalert2";
@@ -20,7 +19,7 @@ const LoginPage = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     userLogin(email, password)
       .then(() => {
         Swal.fire({

@@ -7,7 +7,7 @@ import useAxios from "./../../hooks/useAxios";
 
 const StickyCommentModal = ({ singleArticle, likeCount }) => {
   const { user } = useAuth();
-  const { authorName, content, _id } = singleArticle;
+  const { authorName, content, _id, title } = singleArticle;
   const axiosSecure = useAxios();
 
   const shortContent = (content, wordLimit) => {
@@ -25,22 +25,23 @@ const StickyCommentModal = ({ singleArticle, likeCount }) => {
     e.preventDefault;
     const form = e.target;
     const comment = form.comment.value;
-    console.log(user);
+    // console.log(user);
     const commentInfo = {
       comment,
       articleID: _id,
+      articleTitle: title,
       commenter: user?.displayName,
       commenterEmail: user?.email,
-      commenterPhoto:user?.photoURL
+      commenterPhoto:user?.photoURL,
     };
 
     axiosSecure
       .post("/comment", commentInfo)
       .then((result) => {
-        console.log(result?.data);
+        // console.log(result?.data);
         if (result?.data?.acknowledged) {
           Swal.fire({
-            title: "Comment seccessful.",
+            title: "Comment successful.",
             icon: "success",
             timer: 2000,
             draggable: true,

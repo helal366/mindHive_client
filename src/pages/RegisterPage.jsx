@@ -7,6 +7,7 @@ import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
 import SignUpOne from "../lotties/one/signupOne";
 import { motion } from "motion/react";
+import Swal from "sweetalert2";
 // import { motion } from "motion/react";
 // import { toast } from "react-toastify";
 
@@ -42,7 +43,12 @@ const RegisterPage = () => {
         
         userUpdate(updatedDec)
           .then(() => {
-            toast.success(`You have been registered successfully.`);
+            Swal.fire({
+            title: "You have registered successfully.",
+            icon: "success",
+            timer: 2000,
+            draggable: true,
+          })
             navigate("/");
             form.reset();
           })

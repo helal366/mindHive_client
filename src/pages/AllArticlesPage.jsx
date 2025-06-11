@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import ArticleCard from "../components/allArticlesComponents/ArticleCard";
 import useAuth from "../hooks/useAuth";
 import axios  from 'axios';

@@ -7,12 +7,14 @@ import Loading from "../components/Loading";
 import StickyTopBar from "../components/articleDetailsPageComponents/StickyTopBar";
 import ThumbnailPhoto from "../components/articleDetailsPageComponents/ThumbnailPhoto";
 import ContentAndOthers from "../components/articleDetailsPageComponents/ContentAndOthers";
+import Comments from "../components/articleDetailsPageComponents/Comments";
 
 const ArticleDetailsPage = () => {
   const { id } = useParams();
   const [singleArticle, setSingleArticle] = useState("");
   const [loading, setLoading] = useState(false);
   const axiosSecure = useAxios();
+  const [articleComments, setArticleComments]=useState([])
   useEffect(() => {
     window.scrollTo(0, 0);
     setLoading(true);
@@ -38,12 +40,19 @@ const ArticleDetailsPage = () => {
       ) : (
         <section className="py-2 sm:py-5 md:py-10 relative">
           {/* sticky top bar */}
-          <StickyTopBar singleArticle={singleArticle} />
+          <StickyTopBar 
+          singleArticle={singleArticle} 
+          articleComments={articleComments}/>
           {/* thumbnail */}
           <ThumbnailPhoto singleArticle={singleArticle} />
           {/* content and others */}
           <ContentAndOthers singleArticle={singleArticle}/>
-         
+         {/* comments */}
+         <Comments 
+         singleArticle={singleArticle}
+         articleComments={articleComments}
+         setArticleComments={setArticleComments}
+         />
         </section>
       )}
     </>

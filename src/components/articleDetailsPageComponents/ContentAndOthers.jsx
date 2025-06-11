@@ -6,7 +6,7 @@ const ContentAndOthers = ({singleArticle}) => {
     const publishDate =publicationDate? format(new Date(publicationDate), "do MMM yyyy"):'Unknown';
     return (
         <>
-             <div className="mb-4 md:mb-8 lg:mb-10 bg-base-300 py-3 sm:py-4 px-2 md:px-6 shadow-2xl shadow-neutral-600 rounded-2xl">
+             <div className="mb-4 md:mb-8 lg:mb-10 bg-base-200 py-3 sm:py-4 px-2 md:px-6 shadow-2xl shadow-neutral-600 rounded-2xl">
             <p className="font-semibold md:text-2xl sm:text-xl text-lg opacity-90 mb-2 sm:mb-4 md:mb-6 bg-base-100 px-2 lg:mx-20 md:mx-12 sm:mx-4 py-2 sm:py-3 rounded-xl">
               {title}
             </p>

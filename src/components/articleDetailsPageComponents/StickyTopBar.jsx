@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import {
   BiSolidCommentDetail,
-  BiSolidLike,
+
 } from "react-icons/bi";
 import Swal from "sweetalert2";
 import useAuth from "./../../hooks/useAuth";
@@ -12,7 +12,7 @@ import StickyCommentModal from "./StickyCommentModal";
 import StickyLike from "./StickyLike";
 import { Tooltip } from "react-tooltip";
 
-const StickyTopBar = ({ singleArticle }) => {
+const StickyTopBar = ({ singleArticle, articleComments }) => {
   const axiosSucure = useAxios();
   const { user } = useAuth();
   const userEmail = user?.email;
@@ -79,7 +79,7 @@ const StickyTopBar = ({ singleArticle }) => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="z-20 mb-2 sm:mb-4 md:mb-8 rounded-lg bg-base-300 py-3 sm:py-4 px-1 sm:px-2 md:px-6 flex flex-wrap items-center justify-between sticky top-0 border border-gray-200 shadow-md shadow-neutral-600">
+        <div className="z-20 mb-2 sm:mb-4 md:mb-8 rounded-lg bg-base-200 py-3 sm:py-4 px-1 sm:px-2 md:px-6 flex flex-wrap items-center justify-between sticky top-0 border border-gray-200 shadow-md shadow-neutral-600">
           <div className="flex gap-1 sm:gap-2 md:gap-4 flex-wrap items-center">
             <div className="w-6 h-6 sm:w-8 sm:h-8  rounded-full p-1 ring-1 bg-white">
               <img
@@ -105,13 +105,13 @@ const StickyTopBar = ({ singleArticle }) => {
               <button 
               onClick={() => document.getElementById(`${_id}`).showModal()}
               data-tooltip-id="comment"
-              className="cursor-pointer transition-transform duration-300 hover:scale-120 active:scale-90 text-neutral-600/60 p-1 border border-neutral-600 rounded-full">
+              className="cursor-pointer transition-transform duration-300 hover:scale-120 active:scale-90 text-neutral-600/60 p-1 border border-neutral-600 rounded-full shadow-lg shadow-neutral-500">
                 <BiSolidCommentDetail fill={'gray'} size={20} />
               </button>
               <Tooltip id="comment" content="Click here to comment"/>
               <span 
               className="absolute -top-3 right-1 text-[9px] sm:text-[10px] md:text-xs text-gray-500 z-10 font-bold">
-                40
+                {articleComments?articleComments?.length:0}
               </span>
             </div>
           </div>

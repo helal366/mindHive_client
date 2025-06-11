@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const NavbarDropdown = () => {
   const { user, userLogout } = useAuth();
@@ -11,7 +12,13 @@ const NavbarDropdown = () => {
   const handleLogout = () => {
     userLogout()
       .then(() => {
-        toast.success("You logged out successfully.");
+        
+        Swal.fire({
+            title: "You logged out successfully.",
+            icon: "success",
+            timer: 2000,
+            draggable: true,
+          })
       })
       .catch((err) => {
         toast.error(err.message)
