@@ -13,7 +13,7 @@ import StickyLike from "./StickyLike";
 import { Tooltip } from "react-tooltip";
 
 const StickyTopBar = ({ singleArticle, articleComments, setArticleComments }) => {
-  const axiosSucure = useAxios();
+  const axiosSecure = useAxios();
   const { user } = useAuth();
   const userEmail = user?.email;
   const [loading, setLoading] = useState(false);
@@ -50,7 +50,7 @@ const StickyTopBar = ({ singleArticle, articleComments, setArticleComments }) =>
     setLikeCount(updatedLikes);
     setLikedUserEmails(updatedUserEmails);
     setLoading(true);
-    axiosSucure
+    axiosSecure
       .patch(`/article-like/${_id}`, updatedDoc)
       .then((result) => {
         console.log(result?.data);
@@ -62,11 +62,11 @@ const StickyTopBar = ({ singleArticle, articleComments, setArticleComments }) =>
           text: err.message,
           timer: 2000,
         });
-        setLikeCount(emailExist ? updatedLikes + 1 : updatedLikes - 1);
-        setLikedUserEmails(
+        setLikeCount(prev=>prev+(emailExist ? 1 : - 1));
+        setLikedUserEmails(prev=>
           emailExist
-            ? [...updatedUserEmails, userEmail]
-            : updatedUserEmails.filter((email) => email !== userEmail)
+            ? [...prev, userEmail]
+            : prev.filter((email) => email !== userEmail)
         );
       })
       .finally(() => {

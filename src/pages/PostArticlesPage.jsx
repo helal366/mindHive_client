@@ -22,9 +22,9 @@ const PostArticlesPage = () => {
     const form = e.target;
     const formData = new FormData(form);
     const articleData = Object.fromEntries(formData.entries());
-    const { tags, ...restArtisleData } = articleData;
+    const { tags, ...restArticleData } = articleData;
     const tagsArray = tags.split(",").map((e) => e.trim());
-    const newArticleData = { ...restArtisleData, tags: tagsArray };
+    const newArticleData = { ...restArticleData, tags: tagsArray };
     console.log(newArticleData, tagsArray);
     setLoading(true);
     axiosSecure

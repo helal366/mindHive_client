@@ -35,13 +35,15 @@ const NavbarDropdown = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-200 rounded-box z-1 mt-3 min-w-52 p-2 shadow-xl"
       >
-        <li>
+        <li >
           <NavLink to="/my-articles" className="justify-between">
-            My Articles
+            <span className="text-gray-700">My Articles</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/post-article">Post Article</NavLink>
+          <NavLink to="/post-article">
+          Post Article
+          </NavLink>
         </li>
         <li>
           <p className="justify-between">{user?.email}</p>

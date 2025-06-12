@@ -3,6 +3,10 @@ import AllCategoryNames from "../components/homePageComponents/allCategoryNames"
 import BannerTitle from "../components/homePageComponents/hero/BannerTitle";
 import Motions from "../components/homePageComponents/hero/Motions";
 import MostPopulars from "../components/homePageComponents/mostPopulars/MostPopulars";
+import TopPostedUsers from "../components/homePageComponents/topContributors/TopPostedUsers";
+import TopCommentedUsers from "../components/homePageComponents/topContributors/TopCommentedUsers";
+
+
 
 const HomePage = () => {
   useEffect(()=>{
@@ -22,6 +26,12 @@ const HomePage = () => {
       </div>
       <div className="bg-base-200 py-10 mb-10 rounded-lg shadow-2xl">
         <AllCategoryNames/>
+      </div>
+      <div className="bg-base-200 py-10 mb-10 rounded-lg shadow-2xl">
+        <TopPostedUsers/>
+      </div>
+      <div className="bg-base-200 py-10 mb-10 rounded-lg shadow-2xl">
+        <TopCommentedUsers/>
       </div>
     </>
   );

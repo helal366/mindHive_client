@@ -22,7 +22,7 @@ const StickyCommentModal = ({ singleArticle, likeCount, articleComments, setArti
   const result = shortContent(content, 40);
 
   const handleComment = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     const form = e.target;
     const comment = form.comment.value;
     // console.log(user);
@@ -49,6 +49,7 @@ const StickyCommentModal = ({ singleArticle, likeCount, articleComments, setArti
             timer: 2000,
             draggable: true,
           });
+          form.reset()
         }
       })
       .catch((err) => {

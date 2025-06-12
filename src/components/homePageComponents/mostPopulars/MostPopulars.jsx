@@ -16,7 +16,7 @@ const MostPopulars = () => {
     axios
       .get(`${baseURL}/populars`)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setPopulars(result?.data)
       })
       .catch((err) => {
