@@ -13,6 +13,7 @@ import RootAuthLayout from "../layouts/RootAuthLayout";
 import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 import ArticleDetailsPage from "../pages/ArticleDetailsPage";
+import CategoryArticlesPage from "../pages/CategoryArticlesPage";
 
 const router = createBrowserRouter([
   {
@@ -66,13 +67,21 @@ const router = createBrowserRouter([
           </Suspense>
         )},
       {
-        path: "about-us",
+        path: "/about-us",
         element: (
           <Suspense fallback={<Loading />}>
             <AboutUsPage />
           </Suspense>
         ),
       },
+      {
+        path: '/category-articles/:category',
+        element: (
+          <Suspense>
+            <CategoryArticlesPage/>
+          </Suspense>
+        )
+      }
     ],
   },
   {

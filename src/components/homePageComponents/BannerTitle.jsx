@@ -22,7 +22,7 @@ const BannerTitle = () => {
           whileHover={{ scale: 1.1,rotateX:10, rotateY: 10, boxShadow: '0px 20px 50px'}}
             whileTap={{ scale: 0.95 }}
           className="btn btn-neutral text-base-content bg-base-100 group">
-            <span className="group-hover: text-cyan-500 transition-colors duration-300">
+            <span className="group-hover:text-cyan-500 transition-colors duration-300">
               All Articles
             </span>
           </motion.button>

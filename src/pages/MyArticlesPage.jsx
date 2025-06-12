@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import useAxios from "../hooks/useAxios";
 import Loading from "../components/Loading";
 import MyArticlesTable from "../components/myArticlesComponents/myArticleTable/MyArticlesTable";
+import NoArticle from "../components/myArticlesComponents/myArticleTable/NoArticle";
 // import axiosInstance from "../hooks/axiosInstance";
 
 const MyArticlesPage = () => {
@@ -42,13 +43,16 @@ const MyArticlesPage = () => {
         article.title.toLowerCase().includes(search.toLowerCase())
       )
     : myArticles;
-
+if(!filteredArticles.length>0){
+  return <NoArticle/>
+}
   return (
     <>
       {loading ? (
         <Loading />
       ) : (
         <div className="pb-16">
+          
           <div className="flex flex-col-reverse sm:flex-row justify-between">
             <input
               onChange={(e) => setSearch(e.target.value)}
@@ -57,7 +61,7 @@ const MyArticlesPage = () => {
               className="input input-bordered w-auto my-2 sm:my-10 bg-base-200"
             />
             <h2 className="text-base sm:text-xl md:text-3xl text-center font-semibold my-4 sm:my-6 md:my-8 lg:my-10">
-              My Articles: {myArticles.length}
+              My Articles: {filteredArticles.length}
             </h2>
           </div>
 
