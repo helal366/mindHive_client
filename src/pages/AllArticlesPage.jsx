@@ -25,8 +25,8 @@ const AllArticlesPage = () => {
     },[baseURL,search])  
   return (
     <>    
-    {
-      loading? <Loading/> : <div className="pb-16">
+
+<div className="pb-16">
       <div className="flex justify-between">
         <input
         onChange={e=>setSearch(e.target.value)}
@@ -39,13 +39,17 @@ const AllArticlesPage = () => {
         </h2>
       </div>
      
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
+     {
+      loading? <Loading/> : <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
         {allArticles.map((article) => (
           <ArticleCard key={article._id} article={article} />
         ))}
       </div>
-    </div>
     }
+      
+    </div>
+
+    
     </>
    
   );

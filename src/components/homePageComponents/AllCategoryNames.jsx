@@ -47,7 +47,7 @@ const AllCategoryNames = () => {
               className="btn text-lg mb-5 bg-gray-300 border border-purple-800 cursor-pointer group "
               key={i}>  
               <span className="flex items-center gap-5 text-gray-600 group-hover:text-cyan-500 transition-colors duration-300">
-                <FaTag/>
+                <FaTag fill="teal"/>
                 {category}
               </span>
               </motion.button>)
