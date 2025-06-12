@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import Motions from "../components/homePageComponents/Motions";
-import BannerTitle from "../components/homePageComponents/BannerTitle";
 import AllCategoryNames from "../components/homePageComponents/allCategoryNames";
+import BannerTitle from "../components/homePageComponents/hero/BannerTitle";
+import Motions from "../components/homePageComponents/hero/Motions";
+import MostPopulars from "../components/homePageComponents/mostPopulars/MostPopulars";
 
 const HomePage = () => {
   useEffect(()=>{
@@ -16,6 +17,9 @@ const HomePage = () => {
         <Motions />
       </div>
     </div>
+      <div className="bg-base-200 py-10 mb-10 rounded-lg shadow-2xl">
+        <MostPopulars/>
+      </div>
       <div className="bg-base-200 py-10 mb-10 rounded-lg shadow-2xl">
         <AllCategoryNames/>
       </div>

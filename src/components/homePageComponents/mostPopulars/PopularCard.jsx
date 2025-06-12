@@ -1,21 +1,31 @@
-import React from "react";
+import React from 'react';
 import { easeInOut, motion } from "motion/react";
 import { Link } from "react-router";
 
-const ArticleCard = ({ article }) => {
-  const { title, thumbnail, publicationDate, authorName, content, _id } =
+const PopularCard = ({article, index}) => {
+     const { title, thumbnail, publicationDate, authorName, content, _id } =
     article;
-
-  const shortContent = (content, wordLimit) => {
+    const shortContent = (content, wordLimit) => {
     const wordsArray = content.split(" ");
     const sliceContent = wordsArray.slice(0, wordLimit).join(" ") + " .....";
     const shortList = wordsArray.length > wordLimit ? sliceContent : content;
     return shortList;
   };
   const result = shortContent(content, 30);
-  // console.log(result);
-  return (
-    <motion.div
+    return (
+
+        <>
+        
+        {/* <section className={`card bg-gray-200 text-success-content shadow-2xl border border-primary ${index % 2 === 0 ? 'flex-col-reverse': 'flex-col'}`}>
+            <div>
+                <img className='h-48 w-full' src={thumbnail} alt={title} />
+            </div>
+            <div>
+                <h2 className='text-center'></h2>
+            </div>
+        </section> */}
+
+        <motion.div
       initial={{ x: 2, y: 0 }}
       animate={{
         x: [2, 2, 0, -2, -2, -2, 0, 2, 2],
@@ -24,7 +34,7 @@ const ArticleCard = ({ article }) => {
       whileHover={{ scale: [1.05, 1.0, 1.05] }}
       style={{ boxShadow: "0px 6px 12px rgba(255,255,255,0.8" }}
       transition={{duration:3, repeat:Infinity}}
-      className="card bg-gray-200 text-success-content shadow-2xl border border-primary"
+      className={`card bg-gray-200 text-success-content shadow-2xl border border-primary ${index % 2 === 0 ? 'flex-col': 'flex-col-reverse'} gap-8`}
     >
       <figure>
         <motion.img 
@@ -65,7 +75,8 @@ const ArticleCard = ({ article }) => {
         </div>
       </div>
     </motion.div>
-  );
+        </>
+    );
 };
 
-export default ArticleCard;
+export default PopularCard;
