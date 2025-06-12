@@ -5,11 +5,12 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10 padding">
-      <nav>
+    <footer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-base-300 text-base-content pt-10 pb-20 padding">
+      <nav className="flex flex-col justify-between mb-6 sm:mb-0">
         <p className="hidden lg:block text-xl font-semibold">
           <i>mindHive</i>
         </p>
@@ -20,34 +21,33 @@ const Footer = () => {
           </b>
         </p>
       </nav>
-      <nav>
+      <nav className="flex flex-col gap-3 ">
         <h6 className="footer-title">Legal</h6>
-        <a className="link link-hover">Terms of use</a>
+        <a className="link link-hover">Terms and Conditions</a>
         <a className="link link-hover">Privacy policy</a>
         <a className="link link-hover">Cookie policy</a>
       </nav>
-      <nav>
+      <nav className="flex flex-col gap-3 mt-6 lg:mt-0">
         <h6 className="footer-title">Company</h6>
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
+        <Link to='https://mind-hive-9313b.web.app/about-us' className="link link-hover">About us</Link>
+        <Link  className="link link-hover">Contact us</Link>
+        <Link to='https://mind-hive-9313b.web.app/all-articles' className="link link-hover">Articles</Link>
       </nav>
-      <nav>
-        <h6 className="footer-title">Social</h6>
+      <nav className="flex flex-col items-start lg:items-end justify-start lg:justify-end gap-3 mt-6 lg:mt-0">
+        <h6 className="footer-title">Follow us</h6>
         <div className="grid grid-flow-col gap-4">
-          <a>
+          <Link to='https://x.com/'>
             <FaTwitter size={26} />
-          </a>
-          <a>
+          </Link>
+          <Link to='https://www.youtube.com/'>
             <FaYoutube size={26} />
-          </a>
-          <a>
+          </Link>
+          <Link to='https://www.facebook.com/'>
             <FaFacebookF size={24} />
-          </a>
-          <a>
+          </Link>
+          <Link to='https://www.linkedin.com/'>
             <FaLinkedinIn size={26} />
-          </a>
+          </Link>
         </div>
       </nav>
     </footer>
