@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 const auth=getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser]=useState(null)
-    const [loading, setLoading]=useState(true)
+    const [loading, setLoading]=useState(false)
     const baseURL=import.meta.env.VITE_API_URL;
 
     const userCreate=(email,password)=>{
