@@ -30,7 +30,7 @@ const CategoryArticlesPage = () => {
     <h3 className="text-center text-2xl font-semibold mb-4">
         Articles in "{category}" : ({categeryArticles.length})
     </h3>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
     {
         categeryArticles.map(article=><ArticleCard key={article._id} article={article}/>)
     }
