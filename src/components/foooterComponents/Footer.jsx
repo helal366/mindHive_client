@@ -1,4 +1,5 @@
 import React from "react";
+import { HashLink } from 'react-router-hash-link';
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -23,15 +24,15 @@ const Footer = () => {
       </nav>
       <nav className="flex flex-col gap-3 ">
         <h6 className="footer-title">Legal</h6>
-        <a className="link link-hover">Terms and Conditions</a>
-        <a className="link link-hover">Privacy policy</a>
-        <a className="link link-hover">Cookie policy</a>
+        <HashLink to='/about-us#terms' className="link link-hover">Terms and Conditions</HashLink>
+        <HashLink to='/about-us#privacy' className="link link-hover">Privacy policy</HashLink>
+        <HashLink to='/about-us#cookie' className="link link-hover">Cookie policy</HashLink>
       </nav>
       <nav className="flex flex-col gap-3 mt-6 lg:mt-0">
         <h6 className="footer-title">Company</h6>
-        <Link to='https://mind-hive-9313b.web.app/about-us' className="link link-hover">About us</Link>
-        <Link  className="link link-hover">Contact us</Link>
-        <Link to='https://mind-hive-9313b.web.app/all-articles' className="link link-hover">Articles</Link>
+        <Link to='/about-us' className="link link-hover">About us</Link>
+        <HashLink to='/about-us#contact'  className="link link-hover">Contact us</HashLink>
+        <Link to='/all-articles' className="link link-hover">Articles</Link>
       </nav>
       <nav className="flex flex-col items-start lg:items-end justify-start lg:justify-end gap-3 mt-6 lg:mt-0">
         <h6 className="footer-title">Follow us</h6>
