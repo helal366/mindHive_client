@@ -26,12 +26,12 @@ const TopCommentersCard = ({ singleCommenter }) => {
       <div>
         {comments.map((singleComment,i)=>{
             console.log(singleComment)
-            const {articleTitle, articleCategory,comment}=singleComment
+            const {articleTitle, comment}=singleComment
           return  <div key={i}
         className="bg-gray-100 rounded-lg p-2 mb-2">
             <p className="mb-1">{i+1}.</p>
             <h3 className="text-lg font-semibold mb-1">Article Title: {articleTitle} </h3>
-            <p>Article Category: {articleCategory} </p>
+            {/* <p>Article Category: {articleCategory} </p> */}
             <p><strong>Comment:</strong> "{comment}"</p>
         </div>})}
       </div>
