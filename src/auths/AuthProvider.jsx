@@ -5,6 +5,7 @@ import {
   getAuth,
   onAuthStateChanged,
   GoogleAuthProvider,
+  GithubAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
   signOut,
@@ -16,6 +17,7 @@ import { toast } from "react-toastify";
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider()
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -33,6 +35,10 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
+  const githubLogin=()=>{
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider)
+  }
   const userUpdate = (updatedDec) => {
     setLoading(true);
     return updateProfile(auth.currentUser, updatedDec);
@@ -76,6 +82,7 @@ const AuthProvider = ({ children }) => {
     setLoading,
     userCreate,
     googleLogin,
+    githubLogin,
     userLogin,
     userUpdate,
     userLogout,
