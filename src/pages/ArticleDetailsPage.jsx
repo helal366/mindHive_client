@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
-import useAxios from "../hooks/useAxios";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import Loading from "../components/Loading";
@@ -8,17 +7,17 @@ import StickyTopBar from "../components/articleDetailsPageComponents/StickyTopBa
 import ThumbnailPhoto from "../components/articleDetailsPageComponents/ThumbnailPhoto";
 import ContentAndOthers from "../components/articleDetailsPageComponents/ContentAndOthers";
 import Comments from "../components/articleDetailsPageComponents/Comments";
+import axiosInstance from "../hooks/axiosInstance";
 
 const ArticleDetailsPage = () => {
   const { id } = useParams();
   const [singleArticle, setSingleArticle] = useState("");
   const [loading, setLoading] = useState(false);
-  const axiosSecure = useAxios();
   const [articleComments, setArticleComments]=useState([])
   useEffect(() => {
     window.scrollTo(0, 0);
     setLoading(true);
-    axiosSecure
+    axiosInstance
       .get(`/article/${id}`)
       .then((data) => {
         setSingleArticle(data?.data);
@@ -30,7 +29,7 @@ const ArticleDetailsPage = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [axiosSecure, id]);
+  }, [id]);
   
 
   return (

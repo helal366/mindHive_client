@@ -4,13 +4,12 @@ import { MdEdit } from "react-icons/md";
 import { Tooltip } from "react-tooltip";
 import Modal from "./modalForm/Modal";
 import TableRawData from "./TableRawData";
-import useAxios from "../../../../hooks/useAxios";
 import Loading from "../../../Loading";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import axiosInstance from "../../../../hooks/axiosInstance";
 
 const TableRaw = ({ article, index, handleDeletedUI }) => {
-  const axiosSecure = useAxios();
   const { _id } = article;
   const [loading, setLoading] = useState(false);
   const handleDelete = (id) => {
@@ -25,7 +24,7 @@ const TableRaw = ({ article, index, handleDeletedUI }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         setLoading(true);
-        axiosSecure
+        axiosInstance
           .delete(`/delete-article/${id}`)
           .then((result) => {
             if (result?.data?.acknowledged) {

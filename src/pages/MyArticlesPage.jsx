@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
-import useAxios from "../hooks/useAxios";
 import Loading from "../components/Loading";
 import MyArticlesTable from "../components/myArticlesComponents/myArticleTable/MyArticlesTable";
 import NoArticle from "../components/myArticlesComponents/myArticleTable/NoArticle";
-// import axiosInstance from "../hooks/axiosInstance";
+import axiosInstance from "../hooks/axiosInstance";
 
 const MyArticlesPage = () => {
   const { user } = useAuth();
@@ -13,12 +12,11 @@ const MyArticlesPage = () => {
   const [search, setSearch] = useState("");
   const [myArticles, setMyArticles] = useState([]);
   const [loading, setLoading] = useState(true);
-  const axiosSecure = useAxios();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setLoading(true);
-    axiosSecure(`/my-articles/${userEmail}`)
+    axiosInstance(`/my-articles/${userEmail}`)
       .then((data) => {
         setMyArticles(data?.data);
       })
@@ -29,11 +27,11 @@ const MyArticlesPage = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [userEmail, axiosSecure]);
+  }, [userEmail]);
 
   // after deletion, delete from ui
   const handleDeletedUI = (deletedID) => {
-    const newMyArticles = myArticles.filter(
+    const newMyArticles = myArticles?.filter(
       (article) => article._id !== deletedID
     );
     setMyArticles(() => newMyArticles);
@@ -45,7 +43,7 @@ const MyArticlesPage = () => {
         article.title.toLowerCase().includes(search.toLowerCase())
       )
     : myArticles;
-  if (!filteredArticles.length > 0) {
+  if (!filteredArticles?.length > 0 && !loading) {
     return <NoArticle />;
   }
   return (
@@ -59,7 +57,7 @@ const MyArticlesPage = () => {
             className="input input-bordered w-auto my-2 sm:my-10 bg-base-200"
           />
           <h2 className="text-base sm:text-xl md:text-3xl text-center font-semibold my-4 sm:my-6 md:my-8 lg:my-10">
-            My Articles: {filteredArticles.length}
+            My Articles: {filteredArticles?.length}
           </h2>
         </div>
         {loading ? (

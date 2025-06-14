@@ -2,17 +2,16 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Loading from "../Loading";
-import useAxios from "../../hooks/useAxios";
 import CommentCard from "./comments/CommentCard";
 import NoCommentComponent from "./comments/NoCommentComponent";
+import axiosInstance from "../../hooks/axiosInstance";
 
-const Comments = ({ singleArticle, setArticleComments, articleComments }) => {
-  const axiosSecure = useAxios();
+const Comments = ({ singleArticle, setArticleComments, articleComments }) => {;
   const { _id } = singleArticle;
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    axiosSecure(`/comments/${_id}`)
+    axiosInstance(`/comments/${_id}`)
       .then((result) => {
         console.log("fetch result", result?.data);
         const comments = result?.data || [];
@@ -25,7 +24,7 @@ const Comments = ({ singleArticle, setArticleComments, articleComments }) => {
       .finally(() => {
         setLoading(false);
       });
-  }, [axiosSecure, _id, setArticleComments]);
+  }, [ _id, setArticleComments]);
   return (
     <>
       {loading ? (

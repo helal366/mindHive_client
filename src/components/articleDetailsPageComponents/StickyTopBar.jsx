@@ -6,14 +6,13 @@ import {
 } from "react-icons/bi";
 import Swal from "sweetalert2";
 import useAuth from "./../../hooks/useAuth";
-import useAxios from "./../../hooks/useAxios";
 import Loading from "./../Loading";
 import StickyCommentModal from "./StickyCommentModal";
 import StickyLike from "./StickyLike";
 import { Tooltip } from "react-tooltip";
+import axiosInstance from "../../hooks/axiosInstance";
 
 const StickyTopBar = ({ singleArticle, articleComments, setArticleComments }) => {
-  const axiosSecure = useAxios();
   const { user } = useAuth();
   const userEmail = user?.email;
   const [loading, setLoading] = useState(false);
@@ -50,7 +49,7 @@ const StickyTopBar = ({ singleArticle, articleComments, setArticleComments }) =>
     setLikeCount(updatedLikes);
     setLikedUserEmails(updatedUserEmails);
     setLoading(true);
-    axiosSecure
+    axiosInstance
       .patch(`/article-like/${_id}`, updatedDoc)
       .then((result) => {
         console.log(result?.data);

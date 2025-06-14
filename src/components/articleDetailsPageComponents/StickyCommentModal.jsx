@@ -3,12 +3,11 @@ import useAuth from "../../hooks/useAuth";
 import Swal from 'sweetalert2'
 import CommentModalScroll from "./stickyCommentModal/CommentModalScroll";
 import CommentModalTop from "./stickyCommentModal/CommentModalTop";
-import useAxios from "./../../hooks/useAxios";
+import axiosInstance from "../../hooks/axiosInstance";
 
 const StickyCommentModal = ({ singleArticle, likeCount, articleComments, setArticleComments }) => {
   const { user } = useAuth();
   const { authorName, content, _id, title } = singleArticle;
-  const axiosSecure = useAxios();
 
   const shortContent = (content, wordLimit) => {
     if (!content || typeof content !== "string") {
@@ -35,7 +34,7 @@ const StickyCommentModal = ({ singleArticle, likeCount, articleComments, setArti
       commenterPhoto:user?.photoURL,
     };
 
-    axiosSecure
+    axiosInstance
       .post("/comment", commentInfo)
       .then((result) => {
         // console.log(result?.data);

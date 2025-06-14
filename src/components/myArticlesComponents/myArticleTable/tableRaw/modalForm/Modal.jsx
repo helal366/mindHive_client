@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import ModalForm from "./ModalForm";
-import useAxios from "../../../../../hooks/useAxios";
 import { toast } from "react-toastify";
 import Loading from "../../../../Loading";
+import axiosInstance from "../../../../../hooks/axiosInstance";
 // import { useParams } from "react-router";
 
 const Modal = ({ id }) => {
   const [loading, setLoading] = useState(false);
-  const axiosSecure = useAxios();
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target.closest("form");
@@ -17,7 +16,7 @@ const Modal = ({ id }) => {
     const updatedFormData = { ...restFormData, tags:newTags };
     // console.log(updatedFormData);
     setLoading(true);
-    axiosSecure
+    axiosInstance
       .put(`/update-article/${id}`, updatedFormData)
       .then((data) => {
         if(data?.data?.acknowledged){

@@ -1,20 +1,20 @@
 import { createBrowserRouter } from "react-router";
+import { lazy } from 'react';
 import RootHomeLayout from "../layouts/RootHomeLayout";
 import ErrorPage from "../pages/ErrorPage";
 import { Suspense } from "react";
-import HomePage from "../pages/HomePage";
 import Loading from "../components/Loading";
 import PrivateRoute from "../auths/PrivateRoute";
-import AllArticlesPage from "../pages/AllArticlesPage";
-import MyArticlesPage from "../pages/MyArticlesPage";
-import PostArticlesPage from "../pages/PostArticlesPage";
-import AboutUsPage from "../pages/AboutUsPage";
 import RootAuthLayout from "../layouts/RootAuthLayout";
-import RegisterPage from "../pages/RegisterPage";
-import LoginPage from "../pages/LoginPage";
-import ArticleDetailsPage from "../pages/ArticleDetailsPage";
-import CategoryArticlesPage from "../pages/CategoryArticlesPage";
-
+const HomePage = lazy(() => import("../pages/HomePage"));
+const AllArticlesPage = lazy(() => import("../pages/AllArticlesPage"));
+const MyArticlesPage = lazy(() => import("../pages/MyArticlesPage"));
+const PostArticlesPage = lazy(() => import("../pages/PostArticlesPage"));
+const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
+const RegisterPage = lazy(() => import("../pages/RegisterPage"));
+const LoginPage = lazy(() => import("../pages/LoginPage"));
+const ArticleDetailsPage = lazy(() => import("../pages/ArticleDetailsPage"));
+const CategoryArticlesPage = lazy(() => import("../pages/CategoryArticlesPage"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
       {
         path: '/category-articles/:category',
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading/>}>
             <CategoryArticlesPage/>
           </Suspense>
         )

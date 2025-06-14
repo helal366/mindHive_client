@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
-import useAxios from "../../../../../hooks/useAxios";
 import { toast } from "react-toastify";
 import Loading from "../../../../Loading";
+import axiosInstance from "../../../../../hooks/axiosInstance";
 
 const ModalFormFieldsets = ({ id }) => {
   const [singleArticle, setSingleArticle] = useState({});
   const [loading, setLoading] = useState(false);
-  const axiosSecure = useAxios();
   const {title, content, category, thumbnail, tags,publicationDate}=singleArticle
   useEffect(() => {
     window.scrollTo(0, 0);
     setLoading(true);
-    axiosSecure
+    axiosInstance
       .get(`/article/${id}`)
       .then((data) => {
         setSingleArticle(data?.data);
@@ -23,7 +22,7 @@ const ModalFormFieldsets = ({ id }) => {
       .finally(() => {
         setLoading(false);
       });
-  }, [axiosSecure, id]);
+  }, [id]);
   return (
     <>
       {loading ? (
