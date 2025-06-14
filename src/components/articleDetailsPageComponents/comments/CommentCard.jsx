@@ -9,7 +9,7 @@ const CommentCard = ({ singleComment }) => {
         {/* commenter profile */}
       <div className="flex gap-5 justify-start items-center mb-6">
         <img className="w-10 h-10 p-1 border border-teal-600 rounded-full" src={commenterPhoto} alt={commenter} />
-        <div className="flex flex-col justify-center items-start text-xs">
+        <div className="flex flex-col justify-center items-start text-xs ">
           <p>{commenter}</p>
           <p>{commenterEmail}</p>
         </div>

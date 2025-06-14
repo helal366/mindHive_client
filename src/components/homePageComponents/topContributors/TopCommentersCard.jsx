@@ -6,7 +6,7 @@ const TopCommentersCard = ({ singleCommenter }) => {
   console.log("comments...", comments);
   const { commenter, commenterEmail, commenterPhoto } = _id;
   return (
-    <section className="mb-4 md:mb-8 rounded-lg bg-gray-200 py-4 px-2 md:px-6 border border-gray-200 shadow-md shadow-neutral-600">
+    <section className="mb-4 md:mb-8 rounded-lg bg-gray-300 py-4 px-2 md:px-6 border border-gray-200 shadow-md shadow-neutral-600">
       <div className="flex gap-1 sm:gap-2 md:gap-4 flex-wrap items-center mb-5">
         <div className="w-6 h-6 sm:w-8 sm:h-8  rounded-full p-1 ring-1 bg-white">
           <img

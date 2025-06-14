@@ -7,18 +7,22 @@ const CommentModalScroll = ({
   result,
   articleComments,
 }) => {
-  const { thumbnail, title, authorPhoto, authorName } = singleArticle;
+  const { thumbnail, title, authorPhoto, authorName, authorEmail } = singleArticle;
   return (
     <div className="overflow-y-auto max-h-[65vh] mt-1 ">
       {/* profile pic and profile name */}
       <div className="flex justify-start mb-2">
         <img
-          className="w-8 h-8 rounded-full"
+          className="w-9 h-9 rounded-full"
           src={authorPhoto}
           alt={authorName}
         />
-        &nbsp;
-        <p>{authorName} </p>
+        &nbsp; &nbsp;
+        <div className="flex flex-col ">
+        <p className="text-sm">{authorName} </p>
+        <p className="text-xs">{authorEmail} </p>
+
+        </div>
       </div>
 
       {/* divider */}
@@ -67,14 +71,14 @@ const CommentModalScroll = ({
                 src={comment?.commenterPhoto}
                 alt={comment?.commenter}
               />
-              <div className="flex flex-col justify-center items-start text-xs">
+              <div className="flex flex-col justify-center items-start text-xs text-gray-500">
                 <p>{comment?.commenter}</p>
                 <p>{comment?.commenterEmail}</p>
               </div>
             </div>
 
             {/* comment */}
-            <div className="text-gray-500">
+            <div className="text-gray-700">
               {comment?.comment}
               </div>
               {/* divider */}
