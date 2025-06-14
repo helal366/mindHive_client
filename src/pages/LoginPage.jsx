@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SocialLogin from "../components/loginRegisterComponents/SocialLogin";
 import { Link, useNavigate } from "react-router";
 import EmailPassword from "../components/loginRegisterComponents/EmailPassword";
@@ -8,6 +8,7 @@ import { motion } from "motion/react";
 import Swal from "sweetalert2";
 
 const LoginPage = () => {
+  const [loading, setLoading]=useState(false)
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -20,8 +21,10 @@ const LoginPage = () => {
     const email = form.email.value;
     const password = form.password.value;
     // console.log(email, password);
+    setLoading(true)
     userLogin(email, password)
       .then(() => {
+        setLoading(false)
         Swal.fire({
           title: "You have successfully logged in!",
           icon: "success",
@@ -32,6 +35,7 @@ const LoginPage = () => {
         form.reset();
       })
       .catch((err) => {
+        setLoading(false)
         console.log(err);
         Swal.fire({
           title: "Oops!",
@@ -67,8 +71,10 @@ const LoginPage = () => {
                     type="submit"
                     className="btn bg-base-content text-base-100 hover:bg-base-300 hover:text-base-content mt-2"
                   >
-                    Login
+                    {loading?'Logging in...':'Login'}  
                   </button>
+                </fieldset>
+              </form>
                   <SocialLogin />
                   <p className="mt-2">
                     Not Registered Yet? Please{" "}
@@ -79,8 +85,6 @@ const LoginPage = () => {
                       Register.
                     </Link>
                   </p>
-                </fieldset>
-              </form>
             </div>
           </div>
         </div>

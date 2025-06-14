@@ -111,6 +111,8 @@ const RegisterPage = () => {
                     {errorMessage && (
                       <p className="text-red-500">{errorMessage}</p>
                     )}
+                  </fieldset>
+                </form>
                     <SocialLogin />
                     <p className="mt-2">
                       Already have an account ? Please{" "}
@@ -121,8 +123,6 @@ const RegisterPage = () => {
                         Login.
                       </Link>
                     </p>
-                  </fieldset>
-                </form>
               </div>
             </div>
           </div>

@@ -1,10 +1,11 @@
 import React from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const NavbarDropdown = () => {
+  const navigate=useNavigate();
   const { user, userLogout } = useAuth();
   const daisyImage =
     "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp";
@@ -12,13 +13,13 @@ const NavbarDropdown = () => {
   const handleLogout = () => {
     userLogout()
       .then(() => {
-        
         Swal.fire({
             title: "You logged out successfully.",
             icon: "success",
             timer: 2000,
             draggable: true,
-          })
+          });
+          navigate('/')
       })
       .catch((err) => {
         toast.error(err.message)
