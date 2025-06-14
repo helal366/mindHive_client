@@ -6,6 +6,8 @@ import { FaTag } from "react-icons/fa";
 import { motion } from "motion/react"
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const AllCategoryNames = () => {
     const {baseURL}=useAuth()
@@ -13,6 +15,7 @@ const AllCategoryNames = () => {
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
+     AOS.init();
     setLoading(true);
     axios
       .get(`${baseURL}/categories`)
@@ -42,6 +45,9 @@ const AllCategoryNames = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-7">
             {
               distinctCategories.map((category, i)=><motion.button
+              data-aos="zoom-out-up"
+              data-aos-duration="1500"
+              data-aos-easing="linear"
               onClick={()=>navigate(`category-articles/${category}`)} 
               whileHover={{scale:1.05, boxShadow: '0px 10px 20px white'}}
               className="btn text-lg mb-5 bg-gray-300 border border-purple-800 cursor-pointer group "

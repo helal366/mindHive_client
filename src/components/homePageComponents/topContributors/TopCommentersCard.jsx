@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const TopCommentersCard = ({ singleCommenter }) => {
+  useEffect(()=>{
+    AOS.init();
+  },[])
   const { _id, comments } = singleCommenter;
-  console.log("id...", _id);
-  console.log("comments...", comments);
+  // console.log("id...", _id);
+  // console.log("comments...", comments);
   const { commenter, commenterEmail, commenterPhoto } = _id;
   return (
     <section className="mb-4 md:mb-8 rounded-lg bg-gray-300 py-4 px-2 md:px-6 border border-gray-200 shadow-md shadow-neutral-600">
@@ -24,16 +29,27 @@ const TopCommentersCard = ({ singleCommenter }) => {
       </div>
 
       <div>
-        {comments.map((singleComment,i)=>{
-            console.log(singleComment)
-            const {articleTitle, comment}=singleComment
-          return  <div key={i}
-        className="bg-gray-100 rounded-lg p-2 mb-2">
-            <p className="mb-1">{i+1}.</p>
-            <h3 className="text-lg font-semibold mb-1">Article Title: {articleTitle} </h3>
-            {/* <p>Article Category: {articleCategory} </p> */}
-            <p><strong>Comment:</strong> "{comment}"</p>
-        </div>})}
+        {comments.map((singleComment, i) => {
+          // console.log(singleComment)
+          const { articleTitle, comment } = singleComment;
+          return (
+            <div 
+            key={i} 
+            data-aos="fade-up-right"
+            data-aos-duration="1500"
+            data-aos-easing="linear"
+            className="bg-gray-100 rounded-lg p-2 mb-2">
+              <p className="mb-1">{i + 1}.</p>
+              <h3 className="text-lg font-semibold mb-1">
+                Article Title: {articleTitle}{" "}
+              </h3>
+              {/* <p>Article Category: {articleCategory} </p> */}
+              <p>
+                <strong>Comment:</strong> "{comment}"
+              </p>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
