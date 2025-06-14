@@ -8,11 +8,14 @@ import AuthorFieldset from "../components/postArticleComponents/AuthorFieldset";
 import { useState } from "react";
 import Loading from "../components/Loading";
 import axiosInstance from "../hooks/axiosInstance";
+import AOS from "aos";
+import "aos/dist/aos.css";
 // import axiosInstance from "../hooks/axiosInstance";
 
 const PostArticlesPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init();
   }, []);
   const [loading, setLoading] = useState(false);
   const handlePostArticle = (e) => {
@@ -30,7 +33,7 @@ const PostArticlesPage = () => {
       .then((result) => {
         if (result?.data?.acknowledged) {
           toast.success("Your article posted successfully");
-          form.reset()
+          form.reset();
         }
       })
       .catch((err) => {
@@ -43,7 +46,12 @@ const PostArticlesPage = () => {
   return (
     <>
       <section className="py-10">
-        <div className="card bg-base-200 w-full max-w-4xl mx-auto py-5 shrink-0 shadow-2xl border border-neutral-600">
+        <div
+          data-aos="zoom-in"
+          data-aos-duration="1500"
+          data-aos-easing="linear"
+          className="card bg-base-200 w-full max-w-4xl mx-auto py-5 shrink-0 shadow-2xl border border-neutral-600"
+        >
           <div className="card-body">
             {loading ? (
               <Loading />
@@ -52,7 +60,7 @@ const PostArticlesPage = () => {
                 <Heading />
                 <ArticleFieldsets />
                 <AuthorFieldset />
-                <SubmitButton loading={loading}/>
+                <SubmitButton loading={loading} />
               </form>
             )}
           </div>

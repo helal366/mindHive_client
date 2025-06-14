@@ -5,6 +5,8 @@ import Loading from "../components/Loading";
 import MyArticlesTable from "../components/myArticlesComponents/myArticleTable/MyArticlesTable";
 import NoArticle from "../components/myArticlesComponents/myArticleTable/NoArticle";
 import axiosInstance from "../hooks/axiosInstance";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const MyArticlesPage = () => {
   const { user } = useAuth();
@@ -15,6 +17,7 @@ const MyArticlesPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init();
     setLoading(true);
     axiosInstance(`/my-articles/${userEmail}`)
       .then((data) => {
@@ -48,7 +51,12 @@ const MyArticlesPage = () => {
   }
   return (
     <>
-      <div className="pb-16">
+      <div
+        data-aos="zoom-in"
+        data-aos-duration="1500"
+        data-aos-easing="linear"
+        className="pb-16"
+      >
         <div className="flex flex-col-reverse sm:flex-row justify-between">
           <input
             onChange={(e) => setSearch(e.target.value)}

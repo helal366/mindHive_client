@@ -29,7 +29,7 @@ const MostPopulars = () => {
   return <>{loading ? <Loading /> : <section className='px-6' >
     <h2 className='text-3xl font-semibold mb-8'>Most Popular articles: {populars.length}</h2>
 
-    <div className='grid grid-cols-3 gap-8'>
+    <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-8'>
         {
             populars.map((article, index)=><PopularCard 
             index={index}
