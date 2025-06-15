@@ -2,7 +2,7 @@ import React from "react";
 import { easeInOut, motion } from "motion/react";
 import { Link } from "react-router";
 
-const PopularCard = ({ article, index }) => {
+const PopularCard = ({ article }) => {
   const { title, thumbnail, publicationDate, authorName, content, _id } =
     article;
   const shortContent = (content, wordLimit) => {
@@ -12,7 +12,6 @@ const PopularCard = ({ article, index }) => {
     return shortList;
   };
   const result = shortContent(content, 20);
-  const flexColClass=index%2===0?"md:flex-col" : "md:flex-col-reverse"
   return (
     <>
       <motion.div
@@ -24,7 +23,7 @@ const PopularCard = ({ article, index }) => {
         whileHover={{ scale: [1.05, 1.0, 1.05] }}
         style={{ boxShadow: "0px 6px 12px rgba(255,255,255,0.8)" }}
         transition={{ duration: 3, repeat: Infinity }}
-        className={`card bg-gray-200 text-success-content shadow-2xl border border-primary flex-col  gap-12`}
+        className={`card bg-gray-200 text-success-content shadow-2xl border border-primary flex-col  gap-5`}
       >
         <figure>
           <motion.img
@@ -34,12 +33,12 @@ const PopularCard = ({ article, index }) => {
             alt={title}
           />
         </figure>
-        <div className="card-body">
+        <div className="card-body pt-0 mt-0 text-xs">
           <motion.h2
             initial={{ scale: 1.0 }}
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 5, repeat: Infinity }}
-            className="card-title mb-5"
+            animate={{ scale: [1, 1.06, 1] }}
+            transition={{ duration: 4, repeat: Infinity }}
+            className="card-title mb-2"
           >
             &nbsp; {title}
           </motion.h2>
@@ -48,7 +47,7 @@ const PopularCard = ({ article, index }) => {
             <p>Published on: <b>{publicationDate}</b> </p>
           </div>
           <p>{result}</p>
-          <div className="card-actions justify-end">
+          {/* <div className="card-actions justify-end">
             <Link to={`/article/${_id}`}>
               <motion.button
                 whileHover={{
@@ -61,12 +60,12 @@ const PopularCard = ({ article, index }) => {
                 transition={{ duration: 0.3, ease: easeInOut }}
                 className="btn text-base-content bg-base-100 group"
               >
-                <span className="group-hover:text-cyan-500 transition-colors duration-300">
+                <span className="group-hover:text-cyan-500 transition-colors duration-300 text-xs">
                   Read more
                 </span>
               </motion.button>
             </Link>
-          </div>
+          </div> */}
         </div>
       </motion.div>
     </>

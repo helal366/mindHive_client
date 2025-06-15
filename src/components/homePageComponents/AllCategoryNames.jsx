@@ -45,7 +45,7 @@ const AllCategoryNames = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-7">
             {
               distinctCategories.map((category, i)=><motion.button
-              data-aos="zoom-out-up"
+              data-aos="zoom-in"
               data-aos-duration="1500"
               data-aos-easing="linear"
               onClick={()=>navigate(`category-articles/${category}`)} 

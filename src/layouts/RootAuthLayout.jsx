@@ -5,7 +5,6 @@ import Navbar from '../components/headerComponents/Navbar';
 const RootAuthLayout = () => {
     return (
         <div>
-            <Navbar/>
             <Outlet/>
         </div>
     );
