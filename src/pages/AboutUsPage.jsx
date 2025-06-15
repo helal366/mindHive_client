@@ -16,7 +16,7 @@ const AboutUsPage = () => {
     //     window.scrollTo(0,0)
     // },[])
   return (
-    <section className="bg-gray-300 py-10 my-10 rounded-lg shadow-2xl px-6 text-sm text-gray-800">
+    <section className="bg-base-200 py-10 my-10 rounded-lg shadow-2xl px-6 text-sm text-gray-800">
       <h2 className="mb-2 text-xl font-semibold">
         Welcome to mindHive — your go-to platform for student-led learning,
         collaboration, and idea exchange.
