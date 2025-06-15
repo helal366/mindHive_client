@@ -58,13 +58,11 @@ const AuthProvider = ({ children }) => {
             email: currentUser?.email,
           })
           .then((data) => {
-            // console.log('token from server', data?.data);
             const token = data.data.token;
             localStorage.setItem("token", token);
           })
           .catch((err) => {
             toast.error(err.message);
-            console.log(err);
           });
       } else {
         localStorage.removeItem("token");
@@ -74,6 +72,8 @@ const AuthProvider = ({ children }) => {
       unSubscribe();
     };
   }, [baseURL]);
+
+  
   const authInfo = {
     auth,
     user,

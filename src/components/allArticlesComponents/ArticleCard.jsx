@@ -18,7 +18,6 @@ const ArticleCard = ({ article }) => {
     return shortList;
   };
   const result = shortContent(content, 30);
-  // console.log(result);
   return (
     <motion.div
       data-aos="fade-right"

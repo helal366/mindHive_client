@@ -27,7 +27,10 @@ const AllArticlesPage = () => {
       .finally(() => {
         setLoading(false);
       });
+
   }, [baseURL, search]);
+
+  
   return (
     <>
       <div className="pb-16">
