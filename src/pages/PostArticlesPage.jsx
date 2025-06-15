@@ -26,7 +26,6 @@ const PostArticlesPage = () => {
     const { tags, ...restArticleData } = articleData;
     const tagsArray = tags.split(",").map((e) => e.trim());
     const newArticleData = { ...restArticleData, tags: tagsArray };
-    console.log(newArticleData, tagsArray);
     setLoading(true);
     axiosInstance
       .post(`/post-article`, newArticleData)

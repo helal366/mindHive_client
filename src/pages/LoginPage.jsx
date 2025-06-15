@@ -20,7 +20,6 @@ const LoginPage = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(email, password);
     setLoading(true)
     userLogin(email, password)
       .then(() => {
@@ -36,7 +35,6 @@ const LoginPage = () => {
       })
       .catch((err) => {
         setLoading(false)
-        console.log(err);
         Swal.fire({
           title: "Oops!",
           text: err.message || 'Something went wrong!',

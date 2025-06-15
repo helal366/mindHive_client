@@ -14,7 +14,6 @@ const Modal = ({ id }) => {
     const { tags, ...restFormData } = Object.fromEntries(formData.entries());
     const newTags = tags.split(",").map((tag) => tag.trim());
     const updatedFormData = { ...restFormData, tags:newTags };
-    // console.log(updatedFormData);
     setLoading(true);
     axiosInstance
       .put(`/update-article/${id}`, updatedFormData)
@@ -26,7 +25,6 @@ const Modal = ({ id }) => {
         }
       })
       .catch((err) => {
-        console.log(err);
         toast.error(err.message);
       })
       .finally(() => {

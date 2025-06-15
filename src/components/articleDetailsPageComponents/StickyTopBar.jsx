@@ -51,8 +51,7 @@ const StickyTopBar = ({ singleArticle, articleComments, setArticleComments }) =>
     setLoading(true);
     axiosInstance
       .patch(`/article-like/${_id}`, updatedDoc)
-      .then((result) => {
-        console.log(result?.data);
+      .then(() => {
       })
       .catch((err) => {
         Swal.fire({

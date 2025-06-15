@@ -9,7 +9,6 @@ const CommentCard = ({ singleComment }) => {
     AOS.init();
   }, []);
   const { commenterPhoto, commenter, commenterEmail, comment } = singleComment;
-  console.log(singleComment);
   return (
     <section
       data-aos="zoom-in"

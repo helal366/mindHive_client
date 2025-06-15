@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
 import Loading from "../../../../Loading";
 import axiosInstance from "../../../../../hooks/axiosInstance";
+import Swal from "sweetalert2";
 
 const ModalFormFieldsets = ({ id }) => {
   const [singleArticle, setSingleArticle] = useState({});
@@ -16,8 +16,11 @@ const ModalFormFieldsets = ({ id }) => {
         setSingleArticle(data?.data);
       })
       .catch((err) => {
-        console.log(err);
-        toast.error(err.message);
+        Swal.fire({
+                  icon:"error",
+                  title:err.message || 'Something went wrong',
+                  timer: 1500
+                })
       })
       .finally(() => {
         setLoading(false);

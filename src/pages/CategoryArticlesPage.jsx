@@ -6,6 +6,7 @@ import useAuth from "../hooks/useAuth";
 import { useState } from "react";
 import Loading from "../components/Loading";
 import ArticleCard from "../components/allArticlesComponents/ArticleCard";
+import Swal from "sweetalert2";
 const CategoryArticlesPage = () => {
   const { category } = useParams();
   const { baseURL } = useAuth();
@@ -16,26 +17,37 @@ const CategoryArticlesPage = () => {
     axios
       .get(`${baseURL}/category-articles/${category}`)
       .then((result) => {
-        console.log(result);
         setCategoryArticles(result?.data);
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: err.message || "Something went wrong",
+          timer: 1500,
+        });
       })
       .finally(() => {
         setLoading(false);
       });
   }, [baseURL, category]);
-  return <>{loading ? <Loading /> : <section className="px-6 py-10">
-    <h3 className="text-center text-2xl font-semibold mb-4">
-        Articles in "{category}" : ({categeryArticles.length})
-    </h3>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-    {
-        categeryArticles.map(article=><ArticleCard key={article._id} article={article}/>)
-    }
-    </div>
-  </section>}</>;
+  return (
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <section className="px-6 py-10">
+          <h3 className="text-center text-2xl font-semibold mb-4">
+            Articles in "{category}" : ({categeryArticles.length})
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {categeryArticles.map((article) => (
+              <ArticleCard key={article._id} article={article} />
+            ))}
+          </div>
+        </section>
+      )}
+    </>
+  );
 };
 
 export default CategoryArticlesPage;

@@ -7,6 +7,7 @@ import Loading from "../../Loading";
 import PopularCard from "./PopularCard";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Swal from "sweetalert2";
 
 const MostPopulars = () => {
   const { baseURL } = useAuth();
@@ -19,11 +20,14 @@ const MostPopulars = () => {
     axios
       .get(`${baseURL}/populars`)
       .then((result) => {
-        // console.log(result);
         setPopulars(result?.data);
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: err.message || "Something went wrong",
+          timer: 1500,
+        });
       })
       .finally(() => {
         setLoading(false);

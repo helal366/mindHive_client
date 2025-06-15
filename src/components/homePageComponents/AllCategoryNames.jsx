@@ -20,7 +20,6 @@ const AllCategoryNames = () => {
     axios
       .get(`${baseURL}/categories`)
       .then((result) => {
-        // console.log(result);
         setCategories(result?.data);
         setLoading(false);
       })

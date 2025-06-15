@@ -14,23 +14,19 @@ const SocialLogin = () => {
   const handleGoogleSignin=()=>{
     setLoading(true)
     googleLogin()
-    .then(res=>{
-      console.log(res);
+    .then(()=>{
       Swal.fire({
         icon: "success",
         title: "Google Login Successful",
         timer: 2000
       });
       navigate('/')
-    })
-    .catch(err=>{
+    }).catch(err=>{
       Swal.fire({
         icon: "error",
         title: err.message,
         timer: 2000
-      })
-      console.log(err)})
-    .finally(()=>setLoading(false))
+      })}).finally(()=>setLoading(false))
   }
   const handleGithubSignin=()=>{
     setLoading2(true)

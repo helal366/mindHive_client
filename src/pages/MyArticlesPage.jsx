@@ -7,6 +7,7 @@ import NoArticle from "../components/myArticlesComponents/myArticleTable/NoArtic
 import axiosInstance from "../hooks/axiosInstance";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Swal from "sweetalert2";
 
 const MyArticlesPage = () => {
   const { user } = useAuth();
@@ -24,8 +25,11 @@ const MyArticlesPage = () => {
         setMyArticles(data?.data);
       })
       .catch((err) => {
-        toast.error(err.message);
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: err.message || "Something went wrong",
+          timer: 1500,
+        });
       })
       .finally(() => {
         setLoading(false);

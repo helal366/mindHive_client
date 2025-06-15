@@ -1,11 +1,16 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import CommentModalScroll from "./stickyCommentModal/CommentModalScroll";
 import CommentModalTop from "./stickyCommentModal/CommentModalTop";
 import axiosInstance from "../../hooks/axiosInstance";
 
-const StickyCommentModal = ({ singleArticle, likeCount, articleComments, setArticleComments }) => {
+const StickyCommentModal = ({
+  singleArticle,
+  likeCount,
+  articleComments,
+  setArticleComments,
+}) => {
   const { user } = useAuth();
   const { authorName, content, _id, title } = singleArticle;
 
@@ -24,35 +29,37 @@ const StickyCommentModal = ({ singleArticle, likeCount, articleComments, setArti
     e.preventDefault();
     const form = e.target;
     const comment = form.comment.value;
-    // console.log(user);
     const commentInfo = {
       comment,
       articleID: _id,
       articleTitle: title,
       commenter: user?.displayName,
       commenterEmail: user?.email,
-      commenterPhoto:user?.photoURL,
+      commenterPhoto: user?.photoURL,
     };
 
     axiosInstance
       .post("/comment", commentInfo)
       .then((result) => {
-        // console.log(result?.data);
         if (result?.data?.acknowledged) {
-          const comment=result?.data;
-          const newArticleComments=[...articleComments, comment];
-          setArticleComments(newArticleComments)
+          const comment = result?.data;
+          const newArticleComments = [...articleComments, comment];
+          setArticleComments(newArticleComments);
           Swal.fire({
             title: "Comment successful.",
             icon: "success",
             timer: 2000,
             draggable: true,
           });
-          form.reset()
+          form.reset();
         }
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: err.message || "Something went wrong",
+          timer: 1500,
+        });
       });
   };
   return (

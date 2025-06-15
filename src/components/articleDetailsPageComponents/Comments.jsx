@@ -5,6 +5,7 @@ import Loading from "../Loading";
 import CommentCard from "./comments/CommentCard";
 import NoCommentComponent from "./comments/NoCommentComponent";
 import axiosInstance from "../../hooks/axiosInstance";
+import Swal from "sweetalert2";
 
 const Comments = ({ singleArticle, setArticleComments, articleComments }) => {;
   const { _id } = singleArticle;
@@ -13,13 +14,15 @@ const Comments = ({ singleArticle, setArticleComments, articleComments }) => {;
     setLoading(true);
     axiosInstance(`/comments/${_id}`)
       .then((result) => {
-        console.log("fetch result", result?.data);
         const comments = result?.data || [];
-        console.log("set comments", comments);
         setArticleComments(comments);
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon:"error",
+          title:err.message || 'Something went wrong',
+          timer: 1500
+        })
       })
       .finally(() => {
         setLoading(false);
