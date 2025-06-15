@@ -20,7 +20,7 @@ const TopCommentersCard = ({ singleCommenter }) => {
             alt={commenter}
           />
         </div>
-        <div>
+        <div className="text-gray-800">
           <p className="text-sm font-light opacity-90 ">{commenter}</p>
           <p className="text-[10px] sm:text-xs font-light opacity-70 ">
             {commenterEmail}
@@ -28,7 +28,7 @@ const TopCommentersCard = ({ singleCommenter }) => {
         </div>
       </div>
 
-      <div>
+      <div className="text-gray-700 opacity-70">
         {comments.map((singleComment, i) => {
           // console.log(singleComment)
           const { articleTitle, comment } = singleComment;

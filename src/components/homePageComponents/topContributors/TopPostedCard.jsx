@@ -21,7 +21,7 @@ const TopPostedCard = ({ user }) => {
             alt={authorName}
           />
         </div>
-        <div>
+        <div className="text-gray-800 opacity-70">
           <p className="text-sm font-light opacity-90 ">{authorName}</p>
           <p className="text-[10px] sm:text-xs font-light opacity-70 ">
             {authorEmail}
@@ -37,7 +37,7 @@ const TopPostedCard = ({ user }) => {
               data-aos="fade-up-left"
               data-aos-duration="1500"
               data-aos-easing="linear"
-              className="bg-gray-100 rounded-lg p-2 mb-2"
+              className="bg-gray-100 rounded-lg p-2 mb-2 text-gray-800 opacity-70"
             >
               <p className="mb-1">{i + 1}.</p>
               <h3 className="text-lg font-semibold mb-1">
