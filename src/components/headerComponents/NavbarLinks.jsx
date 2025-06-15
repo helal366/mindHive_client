@@ -35,7 +35,7 @@ const NavbarLinks = () => {
       <NavCenterLinksButton to="/" label="Home" />
 
       <li className=" group relative">
-        <div className="flex itemd-center mr-1">
+        <div className="flex items-center mr-1">
           <motion.button
             whileHover={{
               scale: 1.1,
@@ -43,7 +43,9 @@ const NavbarLinks = () => {
             }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.3, ease: easeInOut }}
-            onClick={() => navigate("/all-articles")}
+            onClick={() => {
+              setOpenDropdown(false)
+              navigate("/all-articles")}}
             className="btn text-base-content bg-base-100 group relative"
           >
             <span className="text-cyan-600">All Articles</span>
@@ -56,7 +58,7 @@ const NavbarLinks = () => {
         </div>
         {/* dropdown */}
         {
-          openDropdown && <ul className="absolute bg-[#f1f4f7] shadow-xl z-50 mt-12 transition-all duration-400 rounded-xl min-w-52 p-5">
+          openDropdown && <ul className={`absolute bg-[#f1f4f7] shadow-xl z-50 mt-12 transition-all transform duration-400 ease-in-out rounded-xl min-w-52 p-5  ${openDropdown?'opacity-100 translate-0':'opacity-0 -translate-y-10'}`}>
           {distinctCategories.map((category, i) => (
             <li
               key={i}
