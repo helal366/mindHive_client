@@ -3,7 +3,7 @@ import { FaCircle, FaLock } from "react-icons/fa";
 
 const PrivacyPolicy = () => {
   return (
-    <div id="privacy" className="mb-8">
+    <div id="privacy" className="mb-3 lg:mb-8">
       <h2 className="text-xl font-semibold mb-2 flex items-start gap-3">
         <FaLock /> Privacy Policy:
       </h2>

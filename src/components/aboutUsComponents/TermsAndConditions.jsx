@@ -3,7 +3,7 @@ import { FaCircle, FaScroll } from 'react-icons/fa';
 
 const TermsAndConditions = () => {
     return (
-       <div className="mb-8" id='terms'>
+       <div className="mb-3 lg:mb-8" id='terms'>
                  <h2 className="text-xl font-semibold mb-2 flex items-start gap-3">
                    <FaScroll /> Terms and Conditions
                  </h2>

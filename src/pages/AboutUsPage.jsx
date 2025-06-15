@@ -36,7 +36,7 @@ const AboutUsPage = () => {
         <WhyItMatters/>    
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-10 gap-x-20  bg-gray-100 p-5 rounded-xl">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-5 md:gap-y-10 xl:gap-x-20  bg-gray-100 p-5 rounded-xl">
         {/* terms and conditions */}
         <TermsAndConditions/>
 

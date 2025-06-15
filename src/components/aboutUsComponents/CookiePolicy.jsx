@@ -3,7 +3,7 @@ import { FaCircle, FaCookie } from "react-icons/fa";
 
 const CookiePolicy = () => {
   return (
-    <div id="cookie" className="mb-8">
+    <div id="cookie" className="mb-3 lg:mb-8">
       <h2 className="text-xl font-semibold mb-2 flex items-start gap-3">
         <FaCookie /> Cookie Policy:
       </h2>
