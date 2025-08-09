@@ -8,6 +8,7 @@ import ContentAndOthers from "../components/articleDetailsPageComponents/Content
 import Comments from "../components/articleDetailsPageComponents/Comments";
 import axiosInstance from "../hooks/axiosInstance";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ArticleDetailsPage = () => {
   const { id } = useParams();
@@ -36,6 +37,9 @@ const ArticleDetailsPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{singleArticle.title}</title>
+      </Helmet>
       {loading ? (
         <Loading />
       ) : (

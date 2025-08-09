@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <>
     {
-      loading?<Loading/>:<div className="navbar bg-base-300 shadow-sm padding">
+      loading?<Loading/>:<div className="navbar bg-base-300/50 shadow-sm padding">
         <NavbarStart></NavbarStart>
         <NavbarCenter></NavbarCenter>
         <NavbarEnd></NavbarEnd>

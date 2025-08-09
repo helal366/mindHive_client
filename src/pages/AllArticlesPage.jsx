@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import Loading from "./../components/Loading";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 const AllArticlesPage = () => {
   const { baseURL } = useAuth();
@@ -27,12 +28,13 @@ const AllArticlesPage = () => {
       .finally(() => {
         setLoading(false);
       });
-
   }, [baseURL, search]);
 
-  
   return (
     <>
+      <Helmet>
+        <title>mindHive | All Articles</title>
+      </Helmet>
       <div className="pb-16">
         <div className="flex justify-between">
           <input

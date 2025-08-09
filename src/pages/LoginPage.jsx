@@ -6,9 +6,10 @@ import useAuth from "../hooks/useAuth";
 import SignUpOne from "../lotties/one/signupOne";
 import { motion } from "motion/react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const LoginPage = () => {
-  const [loading, setLoading]=useState(false)
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -20,10 +21,10 @@ const LoginPage = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    setLoading(true)
+    setLoading(true);
     userLogin(email, password)
       .then(() => {
-        setLoading(false)
+        setLoading(false);
         Swal.fire({
           title: "You have successfully logged in!",
           icon: "success",
@@ -34,10 +35,10 @@ const LoginPage = () => {
         form.reset();
       })
       .catch((err) => {
-        setLoading(false)
+        setLoading(false);
         Swal.fire({
           title: "Oops!",
-          text: err.message || 'Something went wrong!',
+          text: err.message || "Something went wrong!",
           icon: "error",
           draggable: true,
         });
@@ -45,6 +46,9 @@ const LoginPage = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>mindHive | Login</title>
+      </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-row-reverse">
           <div className="hidden lg:block">
@@ -69,20 +73,20 @@ const LoginPage = () => {
                     type="submit"
                     className="btn bg-base-content text-base-100 hover:bg-base-300 hover:text-base-content mt-2"
                   >
-                    {loading?'Logging in...':'Login'}  
+                    {loading ? "Logging in..." : "Login"}
                   </button>
                 </fieldset>
               </form>
-                  <SocialLogin />
-                  <p className="mt-2">
-                    Not Registered Yet? Please{" "}
-                    <Link
-                      to="/auth/register"
-                      className="text-blue-600 underline cursor-pointer"
-                    >
-                      Register.
-                    </Link>
-                  </p>
+              <SocialLogin />
+              <p className="mt-2">
+                Not Registered Yet? Please{" "}
+                <Link
+                  to="/auth/register"
+                  className="text-blue-600 underline cursor-pointer"
+                >
+                  Register.
+                </Link>
+              </p>
             </div>
           </div>
         </div>

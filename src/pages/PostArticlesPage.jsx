@@ -10,6 +10,7 @@ import Loading from "../components/Loading";
 import axiosInstance from "../hooks/axiosInstance";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 // import axiosInstance from "../hooks/axiosInstance";
 
 const PostArticlesPage = () => {
@@ -44,6 +45,9 @@ const PostArticlesPage = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>mindHive | Post Article</title>
+      </Helmet>
       <section className="py-10">
         <div
           data-aos="zoom-in"

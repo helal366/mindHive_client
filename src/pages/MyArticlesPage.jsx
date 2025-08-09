@@ -8,6 +8,7 @@ import axiosInstance from "../hooks/axiosInstance";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyArticlesPage = () => {
   const { user } = useAuth();
@@ -55,6 +56,9 @@ const MyArticlesPage = () => {
   }
   return (
     <>
+      <Helmet>
+        <title>mindHive | My Articles</title>
+      </Helmet>
       <div
         data-aos="zoom-in"
         data-aos-duration="1500"

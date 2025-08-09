@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ErrorArticle from "../lotties/errorArticle/ErrorArticle";
 import { Link } from "react-router";
+import { Helmet } from "react-helmet-async";
 
 const ErrorPage = () => {
   useEffect(() => {
@@ -8,6 +9,9 @@ const ErrorPage = () => {
   }, []);
   return (
     <div className="flex flex-col items-center">
+      <Helmet>
+      <title>mindHive | Error Page</title>
+    </Helmet>
       <div className="my-8 w-120 h-90">
         <ErrorArticle />
       </div>

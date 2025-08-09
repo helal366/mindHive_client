@@ -8,6 +8,7 @@ import SignUpOne from "../lotties/one/signupOne";
 import { motion } from "motion/react";
 import Swal from "sweetalert2";
 import Loading from "../components/Loading";
+import { Helmet } from "react-helmet-async";
 // import { motion } from "motion/react";
 // import { toast } from "react-toastify";
 
@@ -44,19 +45,18 @@ const RegisterPage = () => {
       .then(() => {
         userUpdate(updatedDec)
           .then(() => {
-            
             Swal.fire({
               title: "You have registered successfully.",
               icon: "success",
               timer: 2000,
               draggable: true,
             });
-            setLoading(false)
+            setLoading(false);
             navigate("/");
             form.reset();
           })
           .catch((err) => {
-            setLoading(false)
+            setLoading(false);
             Swal.fire({
               title: "Oops!",
               text: err.message || "Something went wrong!",
@@ -66,7 +66,7 @@ const RegisterPage = () => {
           });
       })
       .catch((err) => {
-        setLoading(false)
+        setLoading(false);
         Swal.fire({
           title: "Oops!",
           text: err.message || "Something went wrong!",
@@ -77,6 +77,9 @@ const RegisterPage = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>mindHive | Register</title>
+      </Helmet>
       {loading ? (
         <Loading />
       ) : (
@@ -113,16 +116,16 @@ const RegisterPage = () => {
                     )}
                   </fieldset>
                 </form>
-                    <SocialLogin />
-                    <p className="mt-2">
-                      Already have an account ? Please{" "}
-                      <Link
-                        to="/auth/login"
-                        className="text-blue-600 underline cursor-pointer"
-                      >
-                        Login.
-                      </Link>
-                    </p>
+                <SocialLogin />
+                <p className="mt-2">
+                  Already have an account ? Please{" "}
+                  <Link
+                    to="/auth/login"
+                    className="text-blue-600 underline cursor-pointer"
+                  >
+                    Login.
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
