@@ -3,7 +3,7 @@ import { easeInOut, motion } from "motion/react";
 import { Link } from "react-router";
 
 const PopularCard = ({ article }) => {
-  const { title, thumbnail, publicationDate, authorName, content, _id } =
+  const { title, thumbnail, content, _id } =
     article;
   const shortContent = (content, wordLimit) => {
     const wordsArray = content.split(" ");
@@ -42,30 +42,24 @@ const PopularCard = ({ article }) => {
           >
             &nbsp; {title}
           </motion.h2>
-          <div>
-            <p>Author name: <b>{authorName}</b> </p>
-            <p>Published on: <b>{publicationDate}</b> </p>
-          </div>
           <p>{result}</p>
-          {/* <div className="card-actions justify-end">
-            <Link to={`/article/${_id}`}>
-              <motion.button
-                whileHover={{
-                  scale: 1.1,
-                  rotateX: 2,
-                  rotateY: 2,
-                  boxShadow: "0px 5px 10px",
-                }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.3, ease: easeInOut }}
-                className="btn text-base-content bg-base-100 group"
-              >
-                <span className="group-hover:text-cyan-500 transition-colors duration-300 text-xs">
-                  Read more
-                </span>
-              </motion.button>
-            </Link>
-          </div> */}
+          <div className="card-actions justify-end gap-2">
+                    <Link to={`/article/${_id}`}>
+                      <motion.button
+                        whileHover={{
+                          scale: 1.1,
+                          boxShadow: "0px 5px 10px",
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.3, ease: easeInOut }}
+                        className="btn text-base-content bg-base-100 group text-sm"
+                      >
+                        <span className="group-hover:text-cyan-500 transition-colors duration-300 ">
+                          Read more
+                        </span>
+                      </motion.button>
+                    </Link>
+                  </div>
         </div>
       </motion.div>
     </>
