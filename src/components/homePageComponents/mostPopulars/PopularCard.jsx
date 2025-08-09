@@ -11,7 +11,7 @@ const PopularCard = ({ article }) => {
     const shortList = wordsArray.length > wordLimit ? sliceContent : content;
     return shortList;
   };
-  const result = shortContent(content, 20);
+  const result = shortContent(content, 10);
   return (
     <>
       <motion.div
@@ -23,12 +23,12 @@ const PopularCard = ({ article }) => {
         whileHover={{ scale: [1.05, 1.0, 1.05] }}
         style={{ boxShadow: "0px 6px 12px rgba(255,255,255,0.8)" }}
         transition={{ duration: 3, repeat: Infinity }}
-        className={`card bg-gray-200 text-success-content shadow-2xl border border-primary flex-col  gap-5`}
+        className={`card bg-gray-200 text-success-content shadow-2xl border border-gray-300/50 flex-col  gap-5`}
       >
         <figure>
           <motion.img
             whileHover={{ opacity: 0.6 }}
-            className="h-60 w-full"
+            className="h-40 w-full"
             src={thumbnail}
             alt={title}
           />
@@ -38,7 +38,7 @@ const PopularCard = ({ article }) => {
             initial={{ scale: 1.0 }}
             animate={{ scale: [1, 1.06, 1] }}
             transition={{ duration: 4, repeat: Infinity }}
-            className="card-title mb-2"
+            className="card-title text-sm mb-2"
           >
             &nbsp; {title}
           </motion.h2>
