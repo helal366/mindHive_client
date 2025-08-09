@@ -10,6 +10,7 @@ import NavCenterLinksButton from "./NavCenterLinksButton";
 import { FaChevronDown } from "react-icons/fa";
 
 const NavbarLinks = () => {
+  const { user } = useAuth()
   const navigate = useNavigate();
   const { baseURL } = useAuth();
   const [categories, setCategories] = useState([]);
@@ -47,25 +48,29 @@ const NavbarLinks = () => {
             <span className="text-cyan-600">All Articles</span>
           </motion.button>
         </NavLink>
-        {/* dropdown */}      
-          <ul
-            className={`absolute bg-[#f1f4f7] shadow-xl z-50 mt-16 transition-all duration-400 ease-in-out rounded-xl min-w-52 p-5 opacity-0 group-hover:opacity-100`}
-          >
-            {distinctCategories.map((category, i) => (
-              <li
-                key={i}
-                className="px-4 py-2 text-gray-900 bg-gray-300 hover:bg-gray-200 hover:font-semibold border-b border-teal-600 cursor-pointer rounded-xl mb-1"
-                // onClick={()=>navigate(`all-articles?category=${(category)}`)}
-                onClick={() => navigate(`category-articles/${category}`)}
-              >
-                {category}
-              </li>
-            ))}
-          </ul>
-        
+        {/* dropdown */}
+        <ul
+          className={`absolute bg-[#f1f4f7] shadow-xl z-50 mt-16 transition-all duration-400 ease-in-out rounded-xl min-w-52 p-5 opacity-0 group-hover:opacity-100`}
+        >
+          {distinctCategories.map((category, i) => (
+            <li
+              key={i}
+              className="px-4 py-2 text-gray-900 bg-gray-300 hover:bg-gray-200 hover:font-semibold border-b border-teal-600 cursor-pointer rounded-xl mb-1"
+              // onClick={()=>navigate(`all-articles?category=${(category)}`)}
+              onClick={() => navigate(`category-articles/${category}`)}
+            >
+              {category}
+            </li>
+          ))}
+        </ul>
+
       </li>
-      <NavCenterLinksButton to="/my-articles" label="My Articles" />
-      <NavCenterLinksButton to="/post-article" label="Post Articles" />
+      {
+        user ? <>
+          <NavCenterLinksButton to="/my-articles" label="My Articles" />
+          <NavCenterLinksButton to="/post-article" label="Post Articles" />
+        </>: ''
+      }
       <NavCenterLinksButton to="/about-us" label="About us" />
     </>
   );
