@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ArticleCard from "../components/allArticlesComponents/ArticleCard";
+// import ArticleCard from "../components/allArticlesComponents/ArticleCard";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -7,6 +7,7 @@ import Loading from "./../components/Loading";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet-async";
+import PopularCard from './../components/homePageComponents/mostPopulars/PopularCard';
 
 const AllArticlesPage = () => {
   const { baseURL } = useAuth();
@@ -55,10 +56,10 @@ const AllArticlesPage = () => {
             data-aos="zoom-in"
             data-aos-duration="1500"
             data-aos-easing="linear"
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8"
           >
             {allArticles.map((article) => (
-              <ArticleCard key={article._id} article={article} />
+              <PopularCard key={article._id} article={article} />
             ))}
           </div>
         )}
