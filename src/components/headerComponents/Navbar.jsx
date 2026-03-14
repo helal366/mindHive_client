@@ -3,12 +3,10 @@ import NavbarLinks from "./NavbarLinks";
 import NavbarCenter from "./NavbarCenter";
 import NavbarStart from "./NavbarStart";
 import NavbarEnd from "./NavbarEnd";
-// import useAuth from "../../hooks/useAuth";
 import Loading from "../Loading";
 import { useNavigation } from "react-router";
 
 const Navbar = () => {
-  // const { loading } = useAuth();
   const navigation=useNavigation();
   const loading=navigation.state==='loading'
   return (

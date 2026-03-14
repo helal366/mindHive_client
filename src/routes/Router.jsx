@@ -29,6 +29,10 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
+      // {
+      //   path: "/dashboard",
+      //   element: <div>Dashboard</div>
+      // },
       {
         path: "/all-articles",
         element: (

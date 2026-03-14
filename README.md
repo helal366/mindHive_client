@@ -33,7 +33,7 @@ The goal of "Mind Hive" is to provide a digital space where students can:
 # Tech Stack
 ###  Frontend
 - React
-- React Router DOM
+- React Router 
 - Tailwind CSS + DaisyUI
 - Firebase Authentication
 - Axios
