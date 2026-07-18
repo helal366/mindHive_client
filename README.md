@@ -1,3 +1,4 @@
+<img width="483" height="296" alt="mindHive_mockup" src="https://github.com/user-attachments/assets/07147bd1-e18d-46fd-acf4-b68c62756536" />
 # Project Name: mindHive
 
 # Live URL: 
