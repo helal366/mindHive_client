@@ -79,7 +79,7 @@ The goal of "Mind Hive" is to provide a digital space where students can:
 
 
 
-## Setup & Installation
+# Setup & Installation
 #### 1. Clone the repo:
 
 ```
